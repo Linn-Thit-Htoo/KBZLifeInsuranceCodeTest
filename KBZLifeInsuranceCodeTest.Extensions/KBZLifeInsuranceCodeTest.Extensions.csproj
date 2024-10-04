@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KBZLifeInsuranceCodeTest.DbService\KBZLifeInsuranceCodeTest.DbService.csproj" />
+    <ProjectReference Include="..\KBZLifeInsuranceCodeTest.DTOs\KBZLifeInsuranceCodeTest.DTOs.csproj" />
+  </ItemGroup>
+
 </Project>

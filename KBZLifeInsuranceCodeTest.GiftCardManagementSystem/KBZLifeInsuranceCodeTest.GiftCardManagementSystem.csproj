@@ -22,4 +22,12 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KBZLifeInsuranceCodeTest.DbService\KBZLifeInsuranceCodeTest.DbService.csproj" />
+    <ProjectReference Include="..\KBZLifeInsuranceCodeTest.DTOs\KBZLifeInsuranceCodeTest.DTOs.csproj" />
+    <ProjectReference Include="..\KBZLifeInsuranceCodeTest.Extensions\KBZLifeInsuranceCodeTest.Extensions.csproj" />
+    <ProjectReference Include="..\KBZLifeInsuranceCodeTest.Shared\KBZLifeInsuranceCodeTest.Shared.csproj" />
+    <ProjectReference Include="..\KBZLifeInsuranceCodeTest.Utils\KBZLifeInsuranceCodeTest.Utils.csproj" />
+  </ItemGroup>
+
 </Project>

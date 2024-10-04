@@ -29,9 +29,6 @@ public partial class AppDbContext : DbContext
             entity.HasIndex(e => e.UserId, "UserId_UNIQUE").IsUnique();
 
             entity.Property(e => e.UserId).HasMaxLength(60);
-            entity.Property(e => e.IsDeleted)
-                .HasDefaultValueSql("b'0'")
-                .HasColumnType("bit(1)");
             entity.Property(e => e.Password).HasMaxLength(200);
             entity.Property(e => e.PhoneNumber).HasMaxLength(15);
             entity.Property(e => e.UserName).HasMaxLength(100);

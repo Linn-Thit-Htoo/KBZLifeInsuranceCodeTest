@@ -15,5 +15,5 @@ public partial class TblUser
 
     public string UserRole { get; set; } = null!;
 
-    public ulong IsDeleted { get; set; }
+    public bool IsDeleted { get; set; }
 }
