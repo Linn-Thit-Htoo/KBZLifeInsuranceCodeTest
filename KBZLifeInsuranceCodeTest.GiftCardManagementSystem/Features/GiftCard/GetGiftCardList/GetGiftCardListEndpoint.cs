@@ -1,11 +1,27 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.GetGiftCardList
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/gift-card")]
     [ApiController]
-    public class GetGiftCardListEndpoint : ControllerBase
+    public class GetGiftCardListEndpoint : BaseController
     {
+        private readonly IMediator _mediator;
+
+        public GetGiftCardListEndpoint(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetGiftCardListAsync(int pageNo, int pageSize, CancellationToken cs)
+        {
+            var query = new GetGiftCardListQuery(pageNo, pageSize);
+            var result = await _mediator.Send(query, cs);
+
+            return Content(result);
+        }
     }
 }
