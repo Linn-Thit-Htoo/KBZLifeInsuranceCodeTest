@@ -15,8 +15,6 @@ public partial class AppDbContext : DbContext
     {
     }
 
-    public virtual DbSet<TblCashbackTicket> TblCashbackTickets { get; set; }
-
     public virtual DbSet<TblGiftcard> TblGiftcards { get; set; }
 
     public virtual DbSet<TblPurchaseInvoice> TblPurchaseInvoices { get; set; }
@@ -24,24 +22,9 @@ public partial class AppDbContext : DbContext
     public virtual DbSet<TblPurchaseInvoiceDetail> TblPurchaseInvoiceDetails { get; set; }
 
     public virtual DbSet<TblUser> TblUsers { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<TblCashbackTicket>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
-
-            entity.ToTable("tbl_cashback_ticket");
-
-            entity.HasIndex(e => e.GiftCardId, "FK_GiftCard_idx");
-
-            entity.Property(e => e.Id).HasMaxLength(60);
-            entity.Property(e => e.GiftCardId).HasMaxLength(60);
-
-            entity.HasOne(d => d.GiftCard).WithMany(p => p.TblCashbackTickets)
-                .HasForeignKey(d => d.GiftCardId)
-                .HasConstraintName("FK_GiftCard");
-        });
-
         modelBuilder.Entity<TblGiftcard>(entity =>
         {
             entity.HasKey(e => e.GiftCardId).HasName("PRIMARY");

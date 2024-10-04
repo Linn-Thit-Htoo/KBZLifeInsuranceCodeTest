@@ -1,5 +1,6 @@
 ﻿using KBZLifeInsuranceCodeTest.DbService.AppDbContextModels;
 using KBZLifeInsuranceCodeTest.DTOs.Features.Account;
+using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,27 @@ namespace KBZLifeInsuranceCodeTest.Extensions
                 UserRole = accountRequest.UserRole,
                 Password = accountRequest.Password,
                 IsDeleted = false
+            };
+        }
+
+        public static GiftCardDTO ToDto(this TblGiftcard tblGiftcard)
+        {
+            return new GiftCardDTO
+            {
+                Amount = tblGiftcard.Amount,
+                CashbackPercentage = tblGiftcard.CashbackPercentage,
+                CreatedDate = tblGiftcard.CreatedDate,
+                Description = tblGiftcard.Description,
+                ExpiryDate = tblGiftcard.ExpiryDate,
+                GiftCardDuration = tblGiftcard.GiftCardDuration,
+                GiftCardId = tblGiftcard.GiftCardId,
+                GiftCardNo = tblGiftcard.GiftCardNo,
+                IsDeleted = tblGiftcard.IsDeleted,
+                PhoneNumber = tblGiftcard.PhoneNumber,
+                Qrcode = tblGiftcard.Qrcode,
+                Status = tblGiftcard.Status,
+                Title = tblGiftcard.Title,
+                UpdatedDate = tblGiftcard.UpdatedDate
             };
         }
     }
