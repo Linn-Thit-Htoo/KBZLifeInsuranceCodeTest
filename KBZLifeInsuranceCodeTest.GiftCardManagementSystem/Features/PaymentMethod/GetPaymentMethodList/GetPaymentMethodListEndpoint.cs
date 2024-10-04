@@ -12,12 +12,12 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PaymentMeth
     public class GetPaymentMethodListEndpoint : BaseController
     {
         [HttpGet]
-        public async Task<IActionResult> GetPaymentMethodListAsync()
+        public async Task<IActionResult> GetPaymentMethodListAsync(CancellationToken cs)
         {
             Result<List<PaymentMethodDTO>> result;
             try
             {
-                string jsonStr = await System.IO.File.ReadAllTextAsync("Data/Payment_Method.json");
+                string jsonStr = await System.IO.File.ReadAllTextAsync("Data/Payment_Method.json", cs);
                 var lst = jsonStr.ToObject<List<PaymentMethodDTO>>();
                 result = Result<List<PaymentMethodDTO>>.Success(lst);
             }
