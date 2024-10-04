@@ -2,6 +2,7 @@
 using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account;
 using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount;
 using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.Login;
+using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard;
 using KBZLifeInsuranceCodeTest.Shared.Services.AuthServices;
 using KBZLifeInsuranceCodeTest.Shared.Services.SecurityServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -37,7 +38,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Dependencies
 
         private static IServiceCollection AddRepositoryServices(this IServiceCollection services)
         {
-            return services.AddScoped<IAccountRepository, AccountRepository>();
+            return services.AddScoped<IAccountRepository, AccountRepository>().AddScoped<IGiftCardRepository, GiftCardRepository>();
         }
 
         private static IServiceCollection AddValidatorServices(this IServiceCollection services)
