@@ -16,7 +16,6 @@ public partial class AppDbContext : DbContext
     }
 
     public virtual DbSet<TblUser> TblUsers { get; set; }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<TblUser>(entity =>
@@ -33,6 +32,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.IsDeleted)
                 .HasDefaultValueSql("b'0'")
                 .HasColumnType("bit(1)");
+            entity.Property(e => e.Password).HasMaxLength(200);
             entity.Property(e => e.PhoneNumber).HasMaxLength(15);
             entity.Property(e => e.UserName).HasMaxLength(100);
             entity.Property(e => e.UserRole).HasMaxLength(30);
