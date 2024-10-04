@@ -3,7 +3,7 @@ using KBZLifeInsuranceCodeTest.Utils;
 using KBZLifeInsuranceCodeTest.Utils.Resources;
 using MediatR;
 
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount
+namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.GetAccountList
 {
     public class GetAccountListQueryHandler : IRequestHandler<GetAccountListQuery, Result<AccountListDTO>>
     {

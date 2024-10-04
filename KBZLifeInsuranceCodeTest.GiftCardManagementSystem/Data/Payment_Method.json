@@ -1,0 +1,14 @@
+[
+  {
+    "PaymentMethod": "Visa Card"
+  },
+  {
+    "PaymentMethod": "KBZ Pay"
+  },
+  {
+    "PaymentMethod": "Master Card"
+  },
+  {
+    "PaymentMethod": "PayPal"
+  }
+]
