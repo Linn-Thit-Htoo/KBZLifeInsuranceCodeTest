@@ -15,17 +15,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GiftCardManagementSystem", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PromotionManagementSystem", "PromotionManagementSystem", "{301F406A-65F3-4D6E-AC95-8C32B7157CDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBZLifeInsuranceCodeTest.Shared", "KBZLifeInsuranceCodeTest.Shared\KBZLifeInsuranceCodeTest.Shared.csproj", "{65D8E084-3F76-48BD-BB1C-B755188E2CE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KBZLifeInsuranceCodeTest.Shared", "KBZLifeInsuranceCodeTest.Shared\KBZLifeInsuranceCodeTest.Shared.csproj", "{65D8E084-3F76-48BD-BB1C-B755188E2CE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBZLifeInsuranceCodeTest.DTOs", "KBZLifeInsuranceCodeTest.DTOs\KBZLifeInsuranceCodeTest.DTOs.csproj", "{C976C6F3-DAA6-4C1D-BAB1-4A08BC13BE55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KBZLifeInsuranceCodeTest.DTOs", "KBZLifeInsuranceCodeTest.DTOs\KBZLifeInsuranceCodeTest.DTOs.csproj", "{C976C6F3-DAA6-4C1D-BAB1-4A08BC13BE55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBZLifeInsuranceCodeTest.Utils", "KBZLifeInsuranceCodeTest.Utils\KBZLifeInsuranceCodeTest.Utils.csproj", "{BA8F1927-526B-4D57-95C3-22618A44614E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KBZLifeInsuranceCodeTest.Utils", "KBZLifeInsuranceCodeTest.Utils\KBZLifeInsuranceCodeTest.Utils.csproj", "{BA8F1927-526B-4D57-95C3-22618A44614E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBZLifeInsuranceCodeTest.Extensions", "KBZLifeInsuranceCodeTest.Extensions\KBZLifeInsuranceCodeTest.Extensions.csproj", "{4F0B4B27-7DA4-45D2-8843-A5249E461B1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KBZLifeInsuranceCodeTest.Extensions", "KBZLifeInsuranceCodeTest.Extensions\KBZLifeInsuranceCodeTest.Extensions.csproj", "{4F0B4B27-7DA4-45D2-8843-A5249E461B1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBZLifeInsuranceCodeTest.DbService", "KBZLifeInsuranceCodeTest.DbService\KBZLifeInsuranceCodeTest.DbService.csproj", "{26969102-947B-4F6E-8D94-E06B3E4AD117}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KBZLifeInsuranceCodeTest.DbService", "KBZLifeInsuranceCodeTest.DbService\KBZLifeInsuranceCodeTest.DbService.csproj", "{26969102-947B-4F6E-8D94-E06B3E4AD117}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBZLifeInsuranceCodeTest.GiftCardManagementSystem", "KBZLifeInsuranceCodeTest.GiftCardManagementSystem\KBZLifeInsuranceCodeTest.GiftCardManagementSystem.csproj", "{5B455F87-A918-41FA-BDBB-7C904122F3ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KBZLifeInsuranceCodeTest.GiftCardManagementSystem", "KBZLifeInsuranceCodeTest.GiftCardManagementSystem\KBZLifeInsuranceCodeTest.GiftCardManagementSystem.csproj", "{5B455F87-A918-41FA-BDBB-7C904122F3ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{016128F0-AE39-4E52-9D18-A71B13676E6C}"
+	ProjectSection(SolutionItems) = preProject
+		KBZ Life Insurance Code Test.postman_collection.json = KBZ Life Insurance Code Test.postman_collection.json
+		schema.sql = schema.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
