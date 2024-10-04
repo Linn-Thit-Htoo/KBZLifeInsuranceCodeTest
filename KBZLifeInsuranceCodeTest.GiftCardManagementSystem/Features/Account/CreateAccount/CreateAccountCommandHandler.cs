@@ -1,5 +1,6 @@
 ﻿using KBZLifeInsuranceCodeTest.DTOs.Features.Account;
 using KBZLifeInsuranceCodeTest.Utils;
+using KBZLifeInsuranceCodeTest.Utils.Enums;
 using MediatR;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount
@@ -15,12 +16,26 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.Cre
             _createAccountValidator = createAccountValidator;
         }
 
-        public Task<Result<AccountDTO>> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
+        public async Task<Result<AccountDTO>> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
         {
             Result<AccountDTO> result;
             try
             {
+                var validationResult = await _createAccountValidator.ValidateAsync(request.AccountRequest, cancellationToken);
+                if (!validationResult.IsValid)
+                {
+                    string errors = string.Join(" ", validationResult.Errors.Select(x => x.ErrorMessage));
+                    result = Result<AccountDTO>.Fail(errors);
+                    goto result;
+                }
 
+                if (!Enum.IsDefined(typeof(EnumUserRole), request.AccountRequest.UserRole))
+                {
+                    result = Result<AccountDTO>.Fail("Invalid User Role");
+                    goto result;
+                }
+
+                result = await _accountRepository.CreateAccountAsync(request.AccountRequest, cancellationToken);
             }
             catch (Exception ex)
             {
