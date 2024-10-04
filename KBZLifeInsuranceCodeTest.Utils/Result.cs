@@ -31,5 +31,8 @@ namespace KBZLifeInsuranceCodeTest.Utils
 
         public static Result<T> Duplicate(string message = "Duplicate data.") =>
             Result<T>.Fail(message, EnumStatusCode.Conflict);
+
+        public static Result<T> UnAuthorized(string message = "UnAuthorized.") =>
+            Result<T>.Fail(message, EnumStatusCode.Unauthorized);
     }
 }

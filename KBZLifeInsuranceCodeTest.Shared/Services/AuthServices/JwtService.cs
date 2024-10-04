@@ -30,7 +30,6 @@ namespace KBZLifeInsuranceCodeTest.Shared.Services.AuthServices
                 new Claim(JwtRegisteredClaimNames.Iat, new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64),
                 new Claim("UserId", jwtResponseModel.UserId),
                 new Claim("UserName", jwtResponseModel.UserName),
-                new Claim("Email", jwtResponseModel.Email),
                 new Claim("UserRole", jwtResponseModel.UserRole),
                 new Claim(ClaimTypes.Role, jwtResponseModel.UserRole)
             };

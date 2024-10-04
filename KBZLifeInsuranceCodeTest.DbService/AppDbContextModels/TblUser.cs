@@ -16,4 +16,6 @@ public partial class TblUser
     public string UserRole { get; set; } = null!;
 
     public bool IsDeleted { get; set; }
+
+    public virtual ICollection<TblPurchaseInvoice> TblPurchaseInvoices { get; set; } = new List<TblPurchaseInvoice>();
 }

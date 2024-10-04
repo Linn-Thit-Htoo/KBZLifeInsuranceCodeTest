@@ -7,5 +7,5 @@ using System.Threading.Tasks;
 
 namespace KBZLifeInsuranceCodeTest.DTOs.Features.Account
 {
-    public record AccountListDTO(List<AccountDTO> Accounts, PageSettingDTO PageSetting)
+    public record AccountListDTO(List<AccountDTO> Accounts, PageSettingDTO PageSetting);
 }

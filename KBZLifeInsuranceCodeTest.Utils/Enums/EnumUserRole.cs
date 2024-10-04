@@ -8,7 +8,7 @@ namespace KBZLifeInsuranceCodeTest.Utils.Enums
 {
     public enum EnumUserRole
     {
-        User,
+        Customer,
         Admin,
     }
 }

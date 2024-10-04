@@ -1,8 +1,12 @@
 ﻿using KBZLifeInsuranceCodeTest.DbService.AppDbContextModels;
+using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account;
+using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount;
+using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.Login;
 using KBZLifeInsuranceCodeTest.Shared.Services.AuthServices;
 using KBZLifeInsuranceCodeTest.Shared.Services.SecurityServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -16,10 +20,11 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Dependencies
                 .AddValidatorServices()
                 .AddMediatRService()
                 .AddAuthenticationService(builder)
+                .AddRepositoryServices()
                 .AddCustomServices();
         }
 
-        private static IServiceCollection AddDbContextService(this  IServiceCollection services, WebApplicationBuilder builder)
+        private static IServiceCollection AddDbContextService(this IServiceCollection services, WebApplicationBuilder builder)
         {
             builder.Services.AddDbContext<AppDbContext>(opt =>
             {
@@ -30,9 +35,14 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Dependencies
             return services;
         }
 
+        private static IServiceCollection AddRepositoryServices(this IServiceCollection services)
+        {
+            return services.AddScoped<IAccountRepository, AccountRepository>();
+        }
+
         private static IServiceCollection AddValidatorServices(this IServiceCollection services)
         {
-            return services;
+            return services.AddScoped<CreateAccountValidator>().AddScoped<LoginValidator>();
         }
 
         private static IServiceCollection AddMediatRService(this IServiceCollection services)
