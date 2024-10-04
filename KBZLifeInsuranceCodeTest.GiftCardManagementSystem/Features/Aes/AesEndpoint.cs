@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Aes
 {
-    [Route("api/[controller]")]
+    [Route("api/v1")]
     [ApiController]
     public class AesEndpoint : BaseController
     {

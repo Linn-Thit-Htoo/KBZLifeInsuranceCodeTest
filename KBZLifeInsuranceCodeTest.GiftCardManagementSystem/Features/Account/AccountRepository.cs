@@ -69,10 +69,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account
                     goto result;
                 }
 
-                var entity = accountRequest.ToEntity();
-                entity.Password = _aesService.Encrypt(accountRequest.Password);
-
-                await _context.TblUsers.AddAsync(entity, cs);
+                await _context.TblUsers.AddAsync(accountRequest.ToEntity(), cs);
                 await _context.SaveChangesAsync(cs);
 
                 result = Result<AccountDTO>.Success();

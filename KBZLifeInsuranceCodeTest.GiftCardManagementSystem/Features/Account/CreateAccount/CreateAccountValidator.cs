@@ -12,8 +12,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.Cre
 
             RuleFor(x => x.PhoneNumber).NotEmpty().WithMessage("Phone Number cannot be empty.")
                 .NotNull().WithMessage("Phone Number cannot be null.")
-                .LessThan("11").WithMessage("Phone Number cannot be less than 11 numbers.")
-                .GreaterThan("11").WithMessage("Phone Number cannot be greater than 11 numbers");
+                .Length(11).WithMessage("Phone Number is invalid.");
 
             RuleFor(x => x.Password).NotEmpty().WithMessage("Password cannot be empty.")
                 .NotNull().WithMessage("Password cannot be null.");
