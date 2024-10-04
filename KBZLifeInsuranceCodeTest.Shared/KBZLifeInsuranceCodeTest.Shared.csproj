@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\AuthServices\" />
+    <Folder Include="Services\CacheServices\" />
+    <Folder Include="Services\ValidationServices\" />
+    <Folder Include="Services\SecurityServices\" />
+  </ItemGroup>
+
+</Project>

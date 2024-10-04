@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35005.142
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{58A45E76-7E21-4B80-AD8D-699819BC4EC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{36FE53DD-1DC3-482D-815B-D659A3B00DBA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{E8E33E0D-9C25-4CCE-9BE0-56DBA99AAD46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{F2C46BFD-8EA8-48B6-8487-3FD4D4697F76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GiftCardManagementSystem", "GiftCardManagementSystem", "{84E8A556-CC24-488A-AFF9-82992B36589A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PromotionManagementSystem", "PromotionManagementSystem", "{301F406A-65F3-4D6E-AC95-8C32B7157CDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBZLifeInsuranceCodeTest.Shared", "KBZLifeInsuranceCodeTest.Shared\KBZLifeInsuranceCodeTest.Shared.csproj", "{65D8E084-3F76-48BD-BB1C-B755188E2CE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBZLifeInsuranceCodeTest.DTOs", "KBZLifeInsuranceCodeTest.DTOs\KBZLifeInsuranceCodeTest.DTOs.csproj", "{C976C6F3-DAA6-4C1D-BAB1-4A08BC13BE55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBZLifeInsuranceCodeTest.Utils", "KBZLifeInsuranceCodeTest.Utils\KBZLifeInsuranceCodeTest.Utils.csproj", "{BA8F1927-526B-4D57-95C3-22618A44614E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBZLifeInsuranceCodeTest.Extensions", "KBZLifeInsuranceCodeTest.Extensions\KBZLifeInsuranceCodeTest.Extensions.csproj", "{4F0B4B27-7DA4-45D2-8843-A5249E461B1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBZLifeInsuranceCodeTest.DbService", "KBZLifeInsuranceCodeTest.DbService\KBZLifeInsuranceCodeTest.DbService.csproj", "{26969102-947B-4F6E-8D94-E06B3E4AD117}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBZLifeInsuranceCodeTest.GiftCardManagementSystem", "KBZLifeInsuranceCodeTest.GiftCardManagementSystem\KBZLifeInsuranceCodeTest.GiftCardManagementSystem.csproj", "{5B455F87-A918-41FA-BDBB-7C904122F3ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65D8E084-3F76-48BD-BB1C-B755188E2CE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65D8E084-3F76-48BD-BB1C-B755188E2CE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65D8E084-3F76-48BD-BB1C-B755188E2CE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65D8E084-3F76-48BD-BB1C-B755188E2CE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C976C6F3-DAA6-4C1D-BAB1-4A08BC13BE55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C976C6F3-DAA6-4C1D-BAB1-4A08BC13BE55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C976C6F3-DAA6-4C1D-BAB1-4A08BC13BE55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C976C6F3-DAA6-4C1D-BAB1-4A08BC13BE55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA8F1927-526B-4D57-95C3-22618A44614E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA8F1927-526B-4D57-95C3-22618A44614E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA8F1927-526B-4D57-95C3-22618A44614E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA8F1927-526B-4D57-95C3-22618A44614E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F0B4B27-7DA4-45D2-8843-A5249E461B1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F0B4B27-7DA4-45D2-8843-A5249E461B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F0B4B27-7DA4-45D2-8843-A5249E461B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F0B4B27-7DA4-45D2-8843-A5249E461B1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26969102-947B-4F6E-8D94-E06B3E4AD117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26969102-947B-4F6E-8D94-E06B3E4AD117}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26969102-947B-4F6E-8D94-E06B3E4AD117}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26969102-947B-4F6E-8D94-E06B3E4AD117}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B455F87-A918-41FA-BDBB-7C904122F3ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B455F87-A918-41FA-BDBB-7C904122F3ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B455F87-A918-41FA-BDBB-7C904122F3ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B455F87-A918-41FA-BDBB-7C904122F3ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{36FE53DD-1DC3-482D-815B-D659A3B00DBA} = {58A45E76-7E21-4B80-AD8D-699819BC4EC2}
+		{E8E33E0D-9C25-4CCE-9BE0-56DBA99AAD46} = {58A45E76-7E21-4B80-AD8D-699819BC4EC2}
+		{F2C46BFD-8EA8-48B6-8487-3FD4D4697F76} = {58A45E76-7E21-4B80-AD8D-699819BC4EC2}
+		{84E8A556-CC24-488A-AFF9-82992B36589A} = {36FE53DD-1DC3-482D-815B-D659A3B00DBA}
+		{301F406A-65F3-4D6E-AC95-8C32B7157CDD} = {36FE53DD-1DC3-482D-815B-D659A3B00DBA}
+		{65D8E084-3F76-48BD-BB1C-B755188E2CE8} = {E8E33E0D-9C25-4CCE-9BE0-56DBA99AAD46}
+		{C976C6F3-DAA6-4C1D-BAB1-4A08BC13BE55} = {E8E33E0D-9C25-4CCE-9BE0-56DBA99AAD46}
+		{BA8F1927-526B-4D57-95C3-22618A44614E} = {E8E33E0D-9C25-4CCE-9BE0-56DBA99AAD46}
+		{4F0B4B27-7DA4-45D2-8843-A5249E461B1E} = {E8E33E0D-9C25-4CCE-9BE0-56DBA99AAD46}
+		{26969102-947B-4F6E-8D94-E06B3E4AD117} = {E8E33E0D-9C25-4CCE-9BE0-56DBA99AAD46}
+		{5B455F87-A918-41FA-BDBB-7C904122F3ED} = {84E8A556-CC24-488A-AFF9-82992B36589A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B8DD6EA7-E796-4134-9FCD-A87D14856CC8}
+	EndGlobalSection
+EndGlobal
