@@ -3,6 +3,7 @@ using KBZLifeInsuranceCodeTest.DTOs.Features.Account;
 using KBZLifeInsuranceCodeTest.DTOs.Features.PageSetting;
 using KBZLifeInsuranceCodeTest.Extensions;
 using KBZLifeInsuranceCodeTest.Shared;
+using KBZLifeInsuranceCodeTest.Shared.Services.AuthServices;
 using KBZLifeInsuranceCodeTest.Shared.Services.SecurityServices;
 using KBZLifeInsuranceCodeTest.Utils;
 using Microsoft.EntityFrameworkCore;
@@ -83,6 +84,46 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account
 
         result:
             return result;
+        }
+
+        public async Task<Result<JwtResponseModel>> LoginAsync(LoginRequestDTO loginRequest, CancellationToken cs)
+        {
+            Result<JwtResponseModel> result;
+            try
+            {
+                var user = await _context.TblUsers.FirstOrDefaultAsync(x => x.PhoneNumber == loginRequest.PhoneNumber
+                && !x.IsDeleted, cancellationToken: cs);
+
+                if (user is null)
+                {
+                    result = Result<JwtResponseModel>.NotFound("Login Fail.");
+                    goto result;
+                }
+
+                var decryptedDbPassword = _aesService.Decrypt(user.Password);
+                var decryptedRequestPassword = _aesService.Decrypt(loginRequest.Password);
+
+                if (!decryptedDbPassword.Equals(decryptedRequestPassword))
+                {
+                    result = Result<JwtResponseModel>.Fail("Password is incorrect.");
+                    goto result;
+                }
+
+                var jwtModel = GetJwtResponseModel(user);
+                result = Result<JwtResponseModel>.Success(jwtModel);
+            }
+            catch (Exception ex)
+            {
+                result = Result<JwtResponseModel>.Fail(ex);
+            }
+
+        result:
+            return result;
+        }
+
+        private JwtResponseModel GetJwtResponseModel(TblUser tblUser)
+        {
+            return new JwtResponseModel(_aesService.Encrypt(tblUser.UserId), _aesService.Encrypt(tblUser.UserName), _aesService.Encrypt(tblUser.UserRole));
         }
     }
 }
