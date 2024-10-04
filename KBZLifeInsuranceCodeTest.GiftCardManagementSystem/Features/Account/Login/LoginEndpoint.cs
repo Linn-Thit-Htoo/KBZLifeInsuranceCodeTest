@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.Login
 {
-    [Route("api/account")]
+    [Route("api/v1/account")]
     [ApiController]
     public class LoginEndpoint : BaseController
     {

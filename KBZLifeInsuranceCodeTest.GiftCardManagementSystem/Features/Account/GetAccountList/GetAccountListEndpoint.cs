@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount
 {
-    [Route("api/account")]
+    [Route("api/v1/account")]
     [ApiController]
     public class GetAccountListEndpoint : BaseController
     {
