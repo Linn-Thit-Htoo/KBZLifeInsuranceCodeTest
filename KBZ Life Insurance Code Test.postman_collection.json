@@ -1,0 +1,510 @@
+{
+	"info": {
+		"_postman_id": "62033a68-9c63-4d12-a283-fd724b82eb3b",
+		"name": "KBZ Life Insurance Code Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20765565",
+		"_collection_link": "https://cloudy-astronaut-89463.postman.co/workspace/APIs~9c93f82e-c4f6-4440-97a9-5eaf36f09af6/collection/20765565-62033a68-9c63-4d12-a283-fd724b82eb3b?action=share&source=collection_link&creator=20765565"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UserName\": \"Lin Thit Htoo\",\r\n    \"PhoneNumber\": \"09773871112\",\r\n    \"Password\": \"vYAOpSg6friSnT70Qrei/rttablaeg1DUa1YajEuoVQ=\",\r\n    \"UserRole\": \"Admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7081/api/v1/account",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7081",
+							"path": [
+								"api",
+								"v1",
+								"account"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"UserName\": \"Lin Thit Htoo\",\r\n    \"PhoneNumber\": \"09773871112\",\r\n    \"Password\": \"vYAOpSg6friSnT70Qrei/rttablaeg1DUa1YajEuoVQ=\",\r\n    \"UserRole\": \"Admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7081/api/v1/account",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7081",
+									"path": [
+										"api",
+										"v1",
+										"account"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "68"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Oct 2024 17:13:38 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Data\": null,\n    \"Message\": \"Success.\",\n    \"IsSuccess\": true,\n    \"StatusCode\": 200\n}"
+						},
+						{
+							"name": "409",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"UserName\": \"Lin Thit Htoo\",\r\n    \"PhoneNumber\": \"09773871112\",\r\n    \"Password\": \"vYAOpSg6friSnT70Qrei/rttablaeg1DUa1YajEuoVQ=\",\r\n    \"UserRole\": \"Admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7081/api/v1/account",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7081",
+									"path": [
+										"api",
+										"v1",
+										"account"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "89"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Oct 2024 17:13:47 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Data\": null,\n    \"Message\": \"Phone Number already exists.\",\n    \"IsSuccess\": false,\n    \"StatusCode\": 409\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"PhoneNumber\": \"09773871112\",\r\n    \"Password\": \"vYAOpSg6friSnT70Qrei/rttablaeg1DUa1YajEuoVQ=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{dev}}/account/login",
+							"host": [
+								"{{dev}}"
+							],
+							"path": [
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"PhoneNumber\": \"09773871112\",\r\n    \"Password\": \"vYAOpSg6friSnT70Qrei/rttablaeg1DUa1YajEuoVQ=\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{dev}}/account/login",
+									"host": [
+										"{{dev}}"
+									],
+									"path": [
+										"account",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "1044"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Oct 2024 17:16:23 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Data\": {\n        \"UserId\": \"qZ2cilcRUlC7ktPY2Tubt4RrCd0URPV/EchxOXiv9M1tFluv23+Zn31zuf4UBRJp\",\n        \"UserName\": \"z/dHaBhKA4Ab74APaNHRvkSPunRgmqP4hKdQj4BwI04=\",\n        \"UserRole\": \"9hGIU6jt5twNltQx8eWRBouI4eZ6Z7o5kAefRYQ8Zis=\",\n        \"Token\": \"eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKV1RTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiIwNzNmZWI1ZS01MGRjLTQwM2YtOGIwMC1jYzY2MjM3YmY3YjkiLCJpYXQiOjE3MjgwNjIxODQsIlVzZXJJZCI6InFaMmNpbGNSVWxDN2t0UFkyVHVidDRSckNkMFVSUFYvRWNoeE9YaXY5TTF0Rmx1djIzK1puMzF6dWY0VUJSSnAiLCJVc2VyTmFtZSI6InovZEhhQmhLQTRBYjc0QVBhTkhSdmtTUHVuUmdtcVA0aEtkUWo0QndJMDQ9IiwiVXNlclJvbGUiOiI5aEdJVTZqdDV0d05sdFF4OGVXUkJvdUk0ZVo2WjdvNWtBZWZSWVE4WmlzPSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IjloR0lVNmp0NXR3Tmx0UXg4ZVdSQm91STRlWjZaN281a0FlZlJZUThaaXM9IiwiZXhwIjoxNzI4MDk4MTg0LCJpc3MiOiJKV1RBdXRoZW50aWNhdGlvblNlcnZlciIsImF1ZCI6IkpXVFNlcnZpY2VQb3N0bWFuQ2xpZW50In0.m4-FQgcaMk8bb59D9fshG4DjZt088Ciu4DFXtse8QsI\"\n    },\n    \"Message\": \"Success.\",\n    \"IsSuccess\": true,\n    \"StatusCode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "Lst",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{dev}}/account?pageNo=1&pageSize=10",
+							"host": [
+								"{{dev}}"
+							],
+							"path": [
+								"account"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{dev}}/account?pageNo=1&pageSize=10",
+									"host": [
+										"{{dev}}"
+									],
+									"path": [
+										"account"
+									],
+									"query": [
+										{
+											"key": "pageNo",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "296"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Oct 2024 17:16:55 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Data\": {\n        \"Accounts\": [\n            {\n                \"UserId\": \"01J9C8GD3T07FEW9BT1JDJ1598\",\n                \"UserName\": \"Lin Thit Htoo\",\n                \"PhoneNumber\": \"09773871112\",\n                \"Password\": null,\n                \"UserRole\": \"Admin\",\n                \"IsDeleted\": false\n            }\n        ],\n        \"PageSetting\": {\n            \"PageNo\": 1,\n            \"PageSize\": 10,\n            \"PageCount\": 1,\n            \"TotalCount\": 1\n        }\n    },\n    \"Message\": \"Success.\",\n    \"IsSuccess\": true,\n    \"StatusCode\": 200\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Aes",
+			"item": [
+				{
+					"name": "Encrypt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{dev}}/encrypt?plainText=123123",
+							"host": [
+								"{{dev}}"
+							],
+							"path": [
+								"encrypt"
+							],
+							"query": [
+								{
+									"key": "plainText",
+									"value": "123123"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Encrypt",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{dev}}/encrypt?plainText=123123",
+									"host": [
+										"{{dev}}"
+									],
+									"path": [
+										"encrypt"
+									],
+									"query": [
+										{
+											"key": "plainText",
+											"value": "123123"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "110"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Oct 2024 17:10:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Data\": \"vYAOpSg6friSnT70Qrei/rttablaeg1DUa1YajEuoVQ=\",\n    \"Message\": \"Success.\",\n    \"IsSuccess\": true,\n    \"StatusCode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "Decrypt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{dev}}/decrypt?encryptedText=o8UT57JSnjctcpGNN4sYo7uS1rd4sExqPvuMp1QIDvg=",
+							"host": [
+								"{{dev}}"
+							],
+							"path": [
+								"decrypt"
+							],
+							"query": [
+								{
+									"key": "encryptedText",
+									"value": "o8UT57JSnjctcpGNN4sYo7uS1rd4sExqPvuMp1QIDvg="
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{dev}}/decrypt?encryptedText=o8UT57JSnjctcpGNN4sYo7uS1rd4sExqPvuMp1QIDvg=",
+									"host": [
+										"{{dev}}"
+									],
+									"path": [
+										"decrypt"
+									],
+									"query": [
+										{
+											"key": "encryptedText",
+											"value": "o8UT57JSnjctcpGNN4sYo7uS1rd4sExqPvuMp1QIDvg="
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Oct 2024 17:17:47 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Data\": \"123123\",\n    \"Message\": \"Success.\",\n    \"IsSuccess\": true,\n    \"StatusCode\": 200\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Payment Method",
+			"item": [
+				{
+					"name": "Lst",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{dev}}/payment-method",
+							"host": [
+								"{{dev}}"
+							],
+							"path": [
+								"payment-method"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{dev}}/payment-method",
+									"host": [
+										"{{dev}}"
+									],
+									"path": [
+										"payment-method"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "182"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Oct 2024 17:18:22 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Data\": [\n        {\n            \"PaymentMethod\": \"Visa Card\"\n        },\n        {\n            \"PaymentMethod\": \"KBZ Pay\"\n        },\n        {\n            \"PaymentMethod\": \"Master Card\"\n        },\n        {\n            \"PaymentMethod\": \"PayPal\"\n        }\n    ],\n    \"Message\": \"Success.\",\n    \"IsSuccess\": true,\n    \"StatusCode\": 200\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
