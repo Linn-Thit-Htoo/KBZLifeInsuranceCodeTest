@@ -5,16 +5,16 @@ using MediatR;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount
 {
-    public class CreateAccountCommandHandler : IRequestHandler<CreateAccountCommand, Result<AccountListDTO>>
+    public class GetAccountListQueryHandler : IRequestHandler<GetAccountListQuery, Result<AccountListDTO>>
     {
         private readonly IAccountRepository _accountRepository;
 
-        public CreateAccountCommandHandler(IAccountRepository accountRepository)
+        public GetAccountListQueryHandler(IAccountRepository accountRepository)
         {
             _accountRepository = accountRepository;
         }
 
-        public async Task<Result<AccountListDTO>> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
+        public async Task<Result<AccountListDTO>> Handle(GetAccountListQuery request, CancellationToken cancellationToken)
         {
             Result<AccountListDTO> result;
             try
