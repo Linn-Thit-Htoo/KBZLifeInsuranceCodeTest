@@ -92,5 +92,32 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard
         result:
             return result;
         }
+
+        public async Task<Result<GiftCardDTO>> DeactivateGiftCardAsync(string id, CancellationToken cs)
+        {
+            Result<GiftCardDTO> result;
+            try
+            {
+                var item = await _context.TblGiftcards.FindAsync([id], cancellationToken: cs);
+                if (item is null)
+                {
+                    result = Result<GiftCardDTO>.NotFound();
+                    goto result;
+                }
+
+                item.IsDeleted = true;
+                _context.TblGiftcards.Update(item);
+
+                await _context.SaveChangesAsync(cs);
+                result = Result<GiftCardDTO>.Success();
+            }
+            catch (Exception ex)
+            {
+                result = Result<GiftCardDTO>.Fail(ex);
+            }
+
+        result:
+            return result;
+        }
     }
 }
