@@ -21,5 +21,18 @@ namespace KBZLifeInsuranceCodeTest.Extensions
                 IsDeleted = tblUser.IsDeleted
             };
         }
+
+        public static TblUser ToEntity(this AccountRequestDTO accountRequest)
+        {
+            return new TblUser
+            {
+                UserId = Ulid.NewUlid().ToString(),
+                UserName = accountRequest.UserName,
+                PhoneNumber = accountRequest.PhoneNumber,
+                UserRole = accountRequest.UserRole,
+                Password = accountRequest.Password,
+                IsDeleted = false
+            };
+        }
     }
 }
