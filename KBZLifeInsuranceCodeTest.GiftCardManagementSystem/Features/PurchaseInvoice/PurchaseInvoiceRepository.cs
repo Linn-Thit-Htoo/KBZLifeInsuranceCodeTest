@@ -1,9 +1,13 @@
 ﻿using KBZLifeInsuranceCodeTest.DbService.AppDbContextModels;
 using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
+using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoiceDetail;
 using KBZLifeInsuranceCodeTest.Extensions;
+using KBZLifeInsuranceCodeTest.Shared;
+using KBZLifeInsuranceCodeTest.Shared.Services;
 using KBZLifeInsuranceCodeTest.Utils;
 using KBZLifeInsuranceCodeTest.Utils.Enums;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice
 {
@@ -11,11 +15,55 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInv
     {
         private readonly AppDbContext _context;
         private readonly IConfiguration _configuration;
+        private readonly DapperService _dapperService;
 
-        public PurchaseInvoiceRepository(AppDbContext context, IConfiguration configuration)
+        public PurchaseInvoiceRepository(AppDbContext context, IConfiguration configuration, DapperService dapperService)
         {
             _context = context;
             _configuration = configuration;
+            _dapperService = dapperService;
+        }
+
+        public async Task<Result<PurchaseInvoiceListDTO>> FilterPurchaseInvoiceListByUserAsync(string userId, string cardStatus, CancellationToken cs)
+        {
+            Result<PurchaseInvoiceListDTO> result;
+            try
+            {
+                bool userExists = await _context.TblUsers.AnyAsync(x => x.UserId == userId && !x.IsDeleted, cancellationToken: cs);
+                if (!userExists)
+                {
+                    result = Result<PurchaseInvoiceListDTO>.NotFound("User not found.");
+                    goto result;
+                }
+
+                List<PurchaseInvoiceDTO> purchaseInvoiceDTOs = new();
+                var invoiceLstByUser = await _dapperService.QueryAsync<PurchaseInvoiceDataModel>(CommonQuery.Sp_FilterPurchaseInvoiceByUserId, new { UserId = userId }, CommandType.StoredProcedure);
+                foreach (var invoice in invoiceLstByUser)
+                {
+                    var parameters = new
+                    {
+                        invoice.InvoiceNo,
+                        Status = cardStatus
+                    };
+                    var invoiceDetailLst = await _dapperService.QueryAsync<PurchaseInvoiceDetailDataModel>(CommonQuery.Sp_GetGiftCardDetailsByInvoiceAndStatus, parameters, CommandType.StoredProcedure);
+
+                    purchaseInvoiceDTOs.Add(new PurchaseInvoiceDTO()
+                    {
+                        PurchaseInvoice = invoice,
+                        PurchaseInvoiceDetails = invoiceDetailLst
+                    });
+                }
+
+                var model = new PurchaseInvoiceListDTO(purchaseInvoiceDTOs);
+                result = Result<PurchaseInvoiceListDTO>.Success(model);
+            }
+            catch (Exception ex)
+            {
+                result = Result<PurchaseInvoiceListDTO>.Fail(ex);
+            }
+
+        result:
+            return result;
         }
 
         public async Task<Result<PurchaseInvoiceDTO>> MakePaymentAsync(PurchaseInvoiceRequestDTO purchaseInvoiceRequest, CancellationToken cs)

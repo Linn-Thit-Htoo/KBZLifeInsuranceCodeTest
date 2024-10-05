@@ -5,6 +5,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInv
 {
     public interface IPurchaseInvoiceRepository
     {
+        Task<Result<PurchaseInvoiceListDTO>> FilterPurchaseInvoiceListByUserAsync(string userId, string cardStatus, CancellationToken cs);
         Task<Result<PurchaseInvoiceDTO>> MakePaymentAsync(PurchaseInvoiceRequestDTO purchaseInvoiceRequest, CancellationToken cs);
     }
 }
