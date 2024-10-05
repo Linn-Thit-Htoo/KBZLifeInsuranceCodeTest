@@ -1,6 +1,7 @@
 ﻿
 using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
 using KBZLifeInsuranceCodeTest.Utils;
+using KBZLifeInsuranceCodeTest.Utils.Enums;
 using MediatR;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice.Purchase

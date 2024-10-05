@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice.Purchase
 {
-    [Route("api/purchase")]
+    [Route("api/v1/purchase")]
     [ApiController]
     public class PurchaseEndpoint : BaseController
     {
@@ -17,7 +17,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInv
         }
 
         [HttpPost]
-        public async Task<IActionResult> MakePayment([FromBody] PurchaseInvoiceRequestDTO purchaseInvoiceRequest, CancellationToken cs)
+        public async Task<IActionResult> MakePayment([FromForm] PurchaseInvoiceRequestDTO purchaseInvoiceRequest, CancellationToken cs)
         {
             var command = new PurchaseCommand(purchaseInvoiceRequest);
             var result = await _mediator.Send(command, cs);

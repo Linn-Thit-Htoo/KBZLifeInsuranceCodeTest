@@ -42,8 +42,8 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInv
                 decimal totalAmount = 0;
                 if (purchaseInvoiceRequest.Equals(purchaseInvoiceRequest))
                 {
-                    decimal discountAmount = 0.05M;
-                    totalAmount = purchaseInvoiceRequest.TotalAmount * discountAmount;
+                    decimal discountAmount = purchaseInvoiceRequest.TotalAmount * 0.05M;
+                    totalAmount = purchaseInvoiceRequest.TotalAmount - discountAmount;
                 }
 
                 #endregion
@@ -71,7 +71,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInv
 
                     var cardDuration = giftCard.GiftCardDuration;
                     var todayDate = DateTime.Now;
-                    DateTime expiryDate = todayDate.AddDays(cardDuration);
+                    DateTime expiryDate = todayDate.AddMonths(cardDuration);
 
                     giftCard.ExpiryDate = expiryDate.ToString("yyyy-MM-dd");
                     _context.TblGiftcards.Update(giftCard);
