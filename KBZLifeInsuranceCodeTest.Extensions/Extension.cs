@@ -1,8 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DbService.AppDbContextModels;
-using KBZLifeInsuranceCodeTest.DTOs.Features.Account;
-using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
-
-namespace KBZLifeInsuranceCodeTest.Extensions
+﻿namespace KBZLifeInsuranceCodeTest.Extensions
 {
     public static class Extension
     {
