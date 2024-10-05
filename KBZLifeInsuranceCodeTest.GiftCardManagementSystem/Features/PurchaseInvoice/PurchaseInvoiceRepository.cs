@@ -2,6 +2,7 @@
 using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
 using KBZLifeInsuranceCodeTest.Extensions;
 using KBZLifeInsuranceCodeTest.Utils;
+using KBZLifeInsuranceCodeTest.Utils.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice
@@ -25,14 +26,24 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInv
             {
                 #region Check User Valid
 
-                bool userValid = await _context.TblUsers.AnyAsync(x => x.UserId == purchaseInvoiceRequest
+                var user = await _context.TblUsers.FirstOrDefaultAsync(x => x.UserId == purchaseInvoiceRequest
                 .UserId && !x.IsDeleted, cancellationToken: cs);
 
-                if (!userValid)
+                if (user is null)
                 {
                     result = Result<PurchaseInvoiceDTO>.NotFound();
                     goto result;
                 }
+
+                #region Check User Role Customer
+
+                if (!EnumUserRole.Customer.ToString().Equals(user.UserRole))
+                {
+                    result = Result<PurchaseInvoiceDTO>.NotFound("User Role is invalid.");
+                    goto result;
+                }
+
+                #endregion
 
                 #endregion
 
