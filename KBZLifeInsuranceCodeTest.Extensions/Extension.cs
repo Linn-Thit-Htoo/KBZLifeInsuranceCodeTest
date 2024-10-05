@@ -1,12 +1,6 @@
 ﻿using KBZLifeInsuranceCodeTest.DbService.AppDbContextModels;
 using KBZLifeInsuranceCodeTest.DTOs.Features.Account;
 using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
-using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KBZLifeInsuranceCodeTest.Extensions
 {
