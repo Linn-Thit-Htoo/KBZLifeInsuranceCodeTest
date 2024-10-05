@@ -9,7 +9,7 @@ namespace KBZLifeInsuranceCodeTest.Shared.Services.QRServices
 {
     public class QRService
     {
-        public static byte[] GenerateQRCodeByte(string inputText)
+        public byte[] GenerateQRCodeByte(string inputText)
         {
             try
             {

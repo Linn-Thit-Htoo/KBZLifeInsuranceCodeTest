@@ -3,7 +3,9 @@ using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
 using KBZLifeInsuranceCodeTest.DTOs.Features.PageSetting;
 using KBZLifeInsuranceCodeTest.Extensions;
 using KBZLifeInsuranceCodeTest.Shared;
+using KBZLifeInsuranceCodeTest.Shared.Services.QRServices;
 using KBZLifeInsuranceCodeTest.Utils;
+using KBZLifeInsuranceCodeTest.Utils.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard
@@ -11,10 +13,12 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard
     public class GiftCardRepository : IGiftCardRepository
     {
         private readonly AppDbContext _context;
+        private readonly QRService _qrService;
 
-        public GiftCardRepository(AppDbContext context)
+        public GiftCardRepository(AppDbContext context, QRService qrService)
         {
             _context = context;
+            _qrService = qrService;
         }
 
         public async Task<Result<GiftCardListDTO>> GetGiftCardListAsync(int pageNo, int pageSize, CancellationToken cs)
@@ -93,17 +97,48 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard
             return result;
         }
 
-        public Task<Result<GiftCardDTO>> MigrateGiftCardsAsync(CancellationToken cs)
+        public async Task<Result<GiftCardDTO>> MigrateGiftCardsAsync(CancellationToken cs)
         {
             Result<GiftCardDTO> result;
             try
             {
+                for (int i = 1; i <= 1000; i++)
+                {
+                    var promoCode = DevCode.GeneratePromoCode();
+                    var qr = _qrService.GenerateQRCodeByte(promoCode);
+                    var model = new TblGiftcard()
+                    {
+                        GiftCardId = Ulid.NewUlid().ToString(),
+                        Title = $"Gift Card - {i}",
+                        Description = "Special promo card, redeemable at all partner stores",
+                        CreatedDate = DateTime.Now,
+                        GiftCardDuration = 6,
+                        GiftCardNo = promoCode,
+                        IsDeleted = false,
+                        Qrcode = qr,
+                        Status = Convert.ToString(EnumGiftCardStatus.Unused)!
+                    };
 
+                    bool isDuplicate = await _context.TblGiftcards.AnyAsync(x => x.GiftCardNo == promoCode && !x.IsDeleted, cancellationToken: cs);
+                    if (isDuplicate)
+                    {
+                        result = Result<GiftCardDTO>.Duplicate("Promo Code duplicate.");
+                        goto result;
+                    }
+
+                    await _context.TblGiftcards.AddAsync(model, cs);
+                }
+
+                await _context.SaveChangesAsync(cs);
+                result = Result<GiftCardDTO>.Success();
             }
             catch (Exception ex)
             {
-
+                result = Result<GiftCardDTO>.Fail(ex);
             }
+
+        result:
+            return result;
         }
 
         public async Task<Result<GiftCardDTO>> DeactivateGiftCardAsync(string id, CancellationToken cs)
