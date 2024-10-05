@@ -27,15 +27,15 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Middleware
                 string authHeader = context.Request.Headers.Authorization!;
                 string requestPath = context.Request.Path;
 
-                if (authHeader is null || !authHeader.StartsWith("Bearer"))
-                {
-                    goto result;
-                }
-
                 if (ShouldPass(requestPath))
                 {
                     await _next.Invoke(context);
                     return;
+                }
+
+                if (authHeader is null || !authHeader.StartsWith("Bearer"))
+                {
+                    goto result;
                 }
 
                 string[] header_token = authHeader.Split(" ");
@@ -70,8 +70,10 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Middleware
         {
             return new List<string>()
         {
-            "/api/v1/account",
+            "/api/v1/account/register",
             "/api/v1/account/login",
+            "/api/v1/encrypt",
+            "/api/v1/decrypt"
         };
         }
     }

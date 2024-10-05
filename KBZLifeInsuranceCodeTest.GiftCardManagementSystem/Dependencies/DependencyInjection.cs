@@ -4,11 +4,13 @@ using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateA
 using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.Login;
 using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard;
 using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.UpdateGiftCard;
+using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Middleware;
 using KBZLifeInsuranceCodeTest.Shared.Services;
 using KBZLifeInsuranceCodeTest.Shared.Services.AuthServices;
 using KBZLifeInsuranceCodeTest.Shared.Services.QRServices;
 using KBZLifeInsuranceCodeTest.Shared.Services.SecurityServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -88,6 +90,11 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Dependencies
         private static IServiceCollection AddCustomServices(this IServiceCollection services)
         {
             return services.AddScoped<AesService>().AddScoped<JwtService>().AddScoped<QRService>().AddTransient<TokenValidationService>().AddScoped< DapperService>();
+        }
+
+        public static IApplicationBuilder UseAuthMiddleware(this WebApplication app)
+        {
+            return app.UseMiddleware<AuthenticationMiddleware>();
         }
     }
 }

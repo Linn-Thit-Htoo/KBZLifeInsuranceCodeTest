@@ -1,4 +1,5 @@
 ﻿using KBZLifeInsuranceCodeTest.Utils.Enums;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace KBZLifeInsuranceCodeTest.Utils
 {
     public class Result<T>
     {
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public T Data { get; set; }
         public string Message { get; set; }
         public bool IsSuccess { get; set; }

@@ -16,7 +16,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.Cre
             _mediator = mediator;
         }
 
-        [HttpPost]
+        [HttpPost("register")]
         public async Task<IActionResult> CreateAccount([FromBody] AccountRequestDTO accountRequest, CancellationToken cs)
         {
             var command = new CreateAccountCommand(accountRequest);
