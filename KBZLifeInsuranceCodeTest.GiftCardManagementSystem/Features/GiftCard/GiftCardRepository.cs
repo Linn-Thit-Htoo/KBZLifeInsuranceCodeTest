@@ -26,10 +26,9 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard
             Result<GiftCardListDTO> result;
             try
             {
-                var query = _context.TblGiftcards.OrderByDescending(x => x.GiftCardId)
-                    .Paginate(pageNo, pageSize);
+                var query = _context.TblGiftcards.OrderByDescending(x => x.GiftCardId);
 
-                var lst = await query.ToListAsync(cancellationToken: cs);
+                var lst = await query.Paginate(pageNo, pageSize).ToListAsync(cancellationToken: cs);
                 var totalCount = await query.CountAsync(cancellationToken: cs);
                 var pageCount = totalCount / pageSize;
 

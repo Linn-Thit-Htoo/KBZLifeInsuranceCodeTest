@@ -28,10 +28,9 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account
             {
                 var query = _context.TblUsers
                     .OrderByDescending(x => x.UserId)
-                    .Where(x => !x.IsDeleted)
-                    .Paginate(pageNo, pageSize);
+                    .Where(x => !x.IsDeleted);
 
-                var lst = await query.ToListAsync(cancellationToken: cs);
+                var lst = await query.Paginate(pageNo, pageSize).ToListAsync(cancellationToken: cs);
                 var totalCount = await query.CountAsync(cancellationToken: cs);
                 var pageCount = totalCount / pageSize;
 
