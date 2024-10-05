@@ -1,6 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoiceDetail;
-
-namespace KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
+﻿namespace KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
 
 public class PurchaseInvoiceDTO
 {
