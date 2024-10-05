@@ -1,6 +1,16 @@
-﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice.Purchase
+﻿using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
+using KBZLifeInsuranceCodeTest.Utils;
+using MediatR;
+
+namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice.Purchase
 {
-    public class PurchaseCommand
+    public class PurchaseCommand : IRequest<Result<PurchaseInvoiceDTO>>
     {
+        public PurchaseInvoiceRequestDTO PurchaseInvoiceRequest { get; set; }
+
+        public PurchaseCommand(PurchaseInvoiceRequestDTO purchaseInvoiceRequest)
+        {
+            PurchaseInvoiceRequest = purchaseInvoiceRequest;
+        }
     }
 }
