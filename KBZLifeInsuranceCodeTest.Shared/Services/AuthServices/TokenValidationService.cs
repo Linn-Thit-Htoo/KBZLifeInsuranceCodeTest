@@ -1,39 +1,38 @@
-﻿namespace KBZLifeInsuranceCodeTest.Shared.Services.AuthServices
+﻿namespace KBZLifeInsuranceCodeTest.Shared.Services.AuthServices;
+
+public class TokenValidationService
 {
-    public class TokenValidationService
+    private readonly IConfiguration _configuration;
+
+    public TokenValidationService(IConfiguration configuration)
     {
-        private readonly IConfiguration _configuration;
+        _configuration = configuration;
+    }
 
-        public TokenValidationService(IConfiguration configuration)
+    public ClaimsPrincipal ValidateToken(string token)
+    {
+        try
         {
-            _configuration = configuration;
+            JwtSecurityTokenHandler tokenHandler = new();
+            var key = Encoding.UTF8.GetBytes(_configuration.GetSection("Jwt:Key").Value!);
+
+            TokenValidationParameters parameters = new()
+            {
+                RequireExpirationTime = true,
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidAudience = _configuration["Jwt:Audience"],
+                ValidIssuer = _configuration["Jwt:Issuer"],
+                IssuerSigningKey = new SymmetricSecurityKey(key)
+            };
+            var principal = tokenHandler.ValidateToken(token, parameters, out SecurityToken securityToken);
+
+            return principal;
         }
-
-        public ClaimsPrincipal ValidateToken(string token)
+        catch (Exception ex)
         {
-            try
-            {
-                JwtSecurityTokenHandler tokenHandler = new();
-                var key = Encoding.UTF8.GetBytes(_configuration.GetSection("Jwt:Key").Value!);
-
-                TokenValidationParameters parameters = new()
-                {
-                    RequireExpirationTime = true,
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = true,
-                    ValidAudience = _configuration["Jwt:Audience"],
-                    ValidIssuer = _configuration["Jwt:Issuer"],
-                    IssuerSigningKey = new SymmetricSecurityKey(key)
-                };
-                var principal = tokenHandler.ValidateToken(token, parameters, out SecurityToken securityToken);
-
-                return principal;
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            throw;
         }
     }
 }
