@@ -141,6 +141,34 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard
             return result;
         }
 
+        public async Task<Result<GiftCardDTO>> UpdateGiftCardAsync(GiftCardRequestDTO giftCardRequest, string id, CancellationToken cs)
+        {
+            Result<GiftCardDTO> result;
+            try
+            {
+                var item = await _context.TblGiftcards.FirstOrDefaultAsync(x => x.GiftCardId == id && !x.IsDeleted, cancellationToken: cs);
+                if (item is null)
+                {
+                    result = Result<GiftCardDTO>.NotFound();
+                    goto result;
+                }
+
+                item.CashbackPercentage = giftCardRequest.CashbackPercentage;
+                item.PhoneNumber = giftCardRequest.PhoneNumber;
+                _context.TblGiftcards.Update(item);
+
+                await _context.SaveChangesAsync(cs);
+                result = Result<GiftCardDTO>.Success();
+            }
+            catch (Exception ex)
+            {
+                result = Result<GiftCardDTO>.Fail(ex);
+            }
+
+        result:
+            return result;
+        }
+
         public async Task<Result<GiftCardDTO>> DeactivateGiftCardAsync(string id, CancellationToken cs)
         {
             Result<GiftCardDTO> result;
