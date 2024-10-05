@@ -26,7 +26,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard
             Result<GiftCardListDTO> result;
             try
             {
-                var query = _context.TblGiftcards.OrderByDescending(x => x.GiftCardId);
+                var query = _context.TblGiftcards.OrderByDescending(x => x.GiftCardId).Where(x => !x.IsDeleted);
 
                 var lst = await query.Paginate(pageNo, pageSize).ToListAsync(cancellationToken: cs);
                 var totalCount = await query.CountAsync(cancellationToken: cs);
@@ -55,7 +55,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard
             Result<GiftCardDTO> result;
             try
             {
-                var item = await _context.TblGiftcards.FindAsync([id], cancellationToken: cs);
+                var item = await _context.TblGiftcards.FirstOrDefaultAsync(x => x.GiftCardId == id && !x.IsDeleted, cancellationToken: cs);
                 if (item is null)
                 {
                     result = Result<GiftCardDTO>.NotFound();
@@ -78,7 +78,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard
             Result<GiftCardDTO> result;
             try
             {
-                var item = await _context.TblGiftcards.FirstOrDefaultAsync(x => x.GiftCardNo == giftCartNo, cancellationToken: cs);
+                var item = await _context.TblGiftcards.FirstOrDefaultAsync(x => x.GiftCardNo == giftCartNo && !x.IsDeleted, cancellationToken: cs);
                 if (item is null)
                 {
                     result = Result<GiftCardDTO>.NotFound();
