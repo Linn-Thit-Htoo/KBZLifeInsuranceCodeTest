@@ -31,6 +31,12 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInv
                     goto result;
                 }
 
+                if (request.PurchaseInvoiceRequest.PurchaseInvoiceDetailRequests.Count <= 0)
+                {
+                    result = Result<PurchaseInvoiceDTO>.Fail("Invalid.");
+                    goto result;
+                }
+
                 int maxLimit = Convert.ToInt32(_configuration.GetSection("MaximumTicketLimit").Value!);
                 if (request.PurchaseInvoiceRequest.PurchaseInvoiceDetailRequests.Count > maxLimit)
                 {
