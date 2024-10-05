@@ -1,6 +1,10 @@
-﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice
+﻿using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
+using KBZLifeInsuranceCodeTest.Utils;
+
+namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice
 {
     public interface IPurchaseInvoiceRepository
     {
+        Task<Result<PurchaseInvoiceDTO>> MakePaymentAsync(PurchaseInvoiceRequestDTO purchaseInvoiceRequest, CancellationToken cs);
     }
 }

@@ -56,5 +56,18 @@ namespace KBZLifeInsuranceCodeTest.Extensions
                 Duration = $"{tblGiftcard.GiftCardDuration} months"
             };
         }
+
+        public static TblPurchaseInvoice ToEntity(this DTOs.Features.PurchaseInvoice.PurchaseInvoiceRequestDTO purchaseInvoiceRequest, decimal totalAmount)
+        {
+            return new TblPurchaseInvoice
+            {
+                PurchaseInvoiceId = Ulid.NewUlid().ToString(),
+                UserId = purchaseInvoiceRequest.UserId,
+                InvoiceNo = Ulid.NewUlid().ToString(),
+                CreatedDate = DateTime.UtcNow,
+                TotalAmount = totalAmount,
+                PaymentMethod = purchaseInvoiceRequest.PaymentMethod
+            };
+        }
     }
 }
