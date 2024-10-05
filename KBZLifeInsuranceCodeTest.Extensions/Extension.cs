@@ -48,7 +48,10 @@ public static class Extension
         };
     }
 
-    public static TblPurchaseInvoice ToEntity(this DTOs.Features.PurchaseInvoice.PurchaseInvoiceRequestDTO purchaseInvoiceRequest, decimal totalAmount)
+    public static TblPurchaseInvoice ToEntity(
+        this DTOs.Features.PurchaseInvoice.PurchaseInvoiceRequestDTO purchaseInvoiceRequest,
+        decimal totalAmount
+    )
     {
         return new TblPurchaseInvoice
         {
