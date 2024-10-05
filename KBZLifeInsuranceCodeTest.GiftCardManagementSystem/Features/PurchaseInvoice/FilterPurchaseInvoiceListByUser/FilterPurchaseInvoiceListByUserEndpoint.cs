@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice.FilterPurchaseInvoiceListByUser
@@ -7,5 +8,20 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInv
     [ApiController]
     public class FilterPurchaseInvoiceListByUserEndpoint : BaseController
     {
+        private readonly IMediator _mediator;
+
+        public FilterPurchaseInvoiceListByUserEndpoint(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> FilterPurchaseHistory(string userId, string cardStatus, CancellationToken cs)
+        {
+            var query = new FilterPurchaseInvoiceListByUserQuery(userId, cardStatus);
+            var result = await _mediator.Send(query, cs);
+
+            return Content(result);
+        }
     }
 }
