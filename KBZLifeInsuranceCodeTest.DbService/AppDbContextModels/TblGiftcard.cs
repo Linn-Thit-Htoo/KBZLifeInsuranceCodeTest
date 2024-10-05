@@ -15,7 +15,7 @@ public partial class TblGiftcard
 
     public string? ExpiryDate { get; set; }
 
-    public decimal Amount { get; set; }
+    public decimal? Amount { get; set; }
 
     public string Status { get; set; } = null!;
 

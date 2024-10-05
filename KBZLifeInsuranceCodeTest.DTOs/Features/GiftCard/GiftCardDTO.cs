@@ -18,7 +18,7 @@ namespace KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard
 
         public string? ExpiryDate { get; set; }
 
-        public decimal Amount { get; set; }
+        public decimal? Amount { get; set; }
 
         public string Status { get; set; } = null!;
 
