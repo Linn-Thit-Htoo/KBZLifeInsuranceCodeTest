@@ -56,7 +56,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Middleware
                 goto result;
             }
 
-        result:
+            result:
             result = Result<string>.UnAuthorized();
             await context.Response.WriteAsync(result.ToJson());
         }
@@ -69,12 +69,12 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Middleware
         private static List<string> GetPublicAccessEndpoints()
         {
             return new List<string>()
-        {
-            "/api/v1/account/register",
-            "/api/v1/account/login",
-            "/api/v1/encrypt",
-            "/api/v1/decrypt"
-        };
+            {
+                "/api/v1/account/register",
+                "/api/v1/account/login",
+                "/api/v1/encrypt",
+                "/api/v1/decrypt"
+            };
         }
     }
 }
