@@ -1,11 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoiceDetail;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice
+﻿namespace KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice
 {
     public class PurchaseInvoiceRequestDTO
     {
