@@ -115,7 +115,8 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard
                         GiftCardNo = promoCode,
                         IsDeleted = false,
                         Qrcode = qr,
-                        Status = Convert.ToString(EnumGiftCardStatus.Unused)!
+                        Status = Convert.ToString(EnumGiftCardStatus.Unused)!,
+                        Amount = 100000
                     };
 
                     bool isDuplicate = await _context.TblGiftcards.AnyAsync(x => x.GiftCardNo == promoCode && !x.IsDeleted, cancellationToken: cs);
