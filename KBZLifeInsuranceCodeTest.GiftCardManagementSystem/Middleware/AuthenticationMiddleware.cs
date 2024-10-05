@@ -1,6 +1,5 @@
 ﻿using KBZLifeInsuranceCodeTest.Shared;
 using KBZLifeInsuranceCodeTest.Shared.Services.AuthServices;
-using KBZLifeInsuranceCodeTest.Shared.Services.SecurityServices;
 using KBZLifeInsuranceCodeTest.Utils;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Middleware
