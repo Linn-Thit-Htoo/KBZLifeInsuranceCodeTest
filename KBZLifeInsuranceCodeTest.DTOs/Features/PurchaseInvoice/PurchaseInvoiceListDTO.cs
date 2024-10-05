@@ -1,4 +1,6 @@
-﻿namespace KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice
-{
-    public record PurchaseInvoiceListDTO(List<PurchaseInvoiceDTO> PurchaseInvoices, PageSettingDTO PageSetting);
-}
+﻿namespace KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
+
+public record PurchaseInvoiceListDTO(
+    List<PurchaseInvoiceDTO> PurchaseInvoices,
+    PageSettingDTO PageSetting
+);
