@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -49,6 +50,6 @@ namespace KBZLifeInsuranceCodeTest.Shared.Services
             }
         }
 
-        private SqlConnection GetSqlConnection() => new(_configuration.GetConnectionString("DbConnection"));
+        private MySqlConnection GetSqlConnection() => new(_configuration.GetConnectionString("DbConnection"));
     }
 }

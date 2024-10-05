@@ -6,6 +6,7 @@ using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard;
 using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.UpdateGiftCard;
 using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice;
 using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice.Purchase;
+using KBZLifeInsuranceCodeTest.Shared.Services;
 using KBZLifeInsuranceCodeTest.Shared.Services.AuthServices;
 using KBZLifeInsuranceCodeTest.Shared.Services.QRServices;
 using KBZLifeInsuranceCodeTest.Shared.Services.SecurityServices;
@@ -90,7 +91,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Dependencies
 
         private static IServiceCollection AddCustomServices(this IServiceCollection services)
         {
-            return services.AddScoped<AesService>().AddScoped<JwtService>().AddScoped<QRService>().AddTransient<TokenValidationService>();
+            return services.AddScoped<AesService>().AddScoped<JwtService>().AddScoped<QRService>().AddTransient<TokenValidationService>().AddScoped< DapperService>();
         }
     }
 }

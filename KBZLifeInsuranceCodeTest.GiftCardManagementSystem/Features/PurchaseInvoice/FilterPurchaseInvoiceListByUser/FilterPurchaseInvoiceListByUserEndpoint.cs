@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice.FilterPurchaseInvoiceListByUser
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/purchase-history")]
     [ApiController]
     public class FilterPurchaseInvoiceListByUserEndpoint : BaseController
     {

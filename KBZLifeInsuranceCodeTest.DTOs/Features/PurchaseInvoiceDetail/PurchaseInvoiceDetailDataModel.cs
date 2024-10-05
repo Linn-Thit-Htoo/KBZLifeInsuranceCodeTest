@@ -21,7 +21,7 @@ namespace KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoiceDetail
         public string ExpiryDate { get; set; }
         public decimal Amount { get; set; }
         public string Status { get; set; }
-        public string QRCode { get; set; }
+        public byte[] QRCode { get; set; }
         public int GiftCardDuration { get; set; }
         public int CashbackPercentage { get; set; }
     }
