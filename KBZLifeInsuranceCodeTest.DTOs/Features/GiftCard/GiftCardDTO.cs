@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard
@@ -28,7 +29,7 @@ namespace KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard
 
         public byte[] Qrcode { get; set; } = null!;
 
-        public int GiftCardDuration { get; set; }
+        public string Duration { get; set; } = null!;
 
         public bool IsDeleted { get; set; }
 

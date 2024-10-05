@@ -45,7 +45,6 @@ namespace KBZLifeInsuranceCodeTest.Extensions
                 CreatedDate = tblGiftcard.CreatedDate,
                 Description = tblGiftcard.Description,
                 ExpiryDate = tblGiftcard.ExpiryDate,
-                GiftCardDuration = tblGiftcard.GiftCardDuration,
                 GiftCardId = tblGiftcard.GiftCardId,
                 GiftCardNo = tblGiftcard.GiftCardNo,
                 IsDeleted = tblGiftcard.IsDeleted,
@@ -53,7 +52,8 @@ namespace KBZLifeInsuranceCodeTest.Extensions
                 Qrcode = tblGiftcard.Qrcode,
                 Status = tblGiftcard.Status,
                 Title = tblGiftcard.Title,
-                UpdatedDate = tblGiftcard.UpdatedDate
+                UpdatedDate = tblGiftcard.UpdatedDate,
+                Duration = $"{tblGiftcard.GiftCardDuration} months"
             };
         }
     }

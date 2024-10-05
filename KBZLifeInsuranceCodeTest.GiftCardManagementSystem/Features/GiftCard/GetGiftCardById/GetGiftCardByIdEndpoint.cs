@@ -15,7 +15,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.Ge
             _mediator = mediator;
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetGiftCardById(string id, CancellationToken cs)
         {
             var query = new GetGiftCardByIdQuery(id);
