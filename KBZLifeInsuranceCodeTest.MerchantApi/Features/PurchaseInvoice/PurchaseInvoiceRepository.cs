@@ -9,7 +9,7 @@ using KBZLifeInsuranceCodeTest.Utils.Enums;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice
+namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice
 {
     public class PurchaseInvoiceRepository : IPurchaseInvoiceRepository
     {

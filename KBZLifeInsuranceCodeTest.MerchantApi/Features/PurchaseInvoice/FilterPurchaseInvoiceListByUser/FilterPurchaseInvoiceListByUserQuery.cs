@@ -2,7 +2,7 @@
 using KBZLifeInsuranceCodeTest.Utils;
 using MediatR;
 
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice.FilterPurchaseInvoiceListByUser
+namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.FilterPurchaseInvoiceListByUser
 {
     public class FilterPurchaseInvoiceListByUserQuery : IRequest<Result<PurchaseInvoiceListDTO>>
     {

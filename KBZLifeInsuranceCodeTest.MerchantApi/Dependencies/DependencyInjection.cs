@@ -1,9 +1,7 @@
 ﻿using KBZLifeInsuranceCodeTest.DbService.AppDbContextModels;
-using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account;
-using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount;
-using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.Login;
-using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard;
-using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.UpdateGiftCard;
+using KBZLifeInsuranceCodeTest.MerchantApi.Features.GiftCard;
+using KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice;
+using KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.Purchase;
 using KBZLifeInsuranceCodeTest.Shared.Services;
 using KBZLifeInsuranceCodeTest.Shared.Services.AuthServices;
 using KBZLifeInsuranceCodeTest.Shared.Services.QRServices;
@@ -14,18 +12,18 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Dependencies
+namespace KBZLifeInsuranceCodeTest.MerchantApi.Dependencies
 {
     public static class DependencyInjection
     {
         public static IServiceCollection AddDependencyInjection(this IServiceCollection services, WebApplicationBuilder builder)
         {
             return services.AddDbContextService(builder)
-                .AddValidatorServices()
                 .AddMediatRService()
                 .AddAuthenticationService(builder)
                 .AddRepositoryServices()
-                .AddCustomServices();
+                .AddCustomServices()
+                .AddValidatorServices();
         }
 
         private static IServiceCollection AddDbContextService(this IServiceCollection services, WebApplicationBuilder builder)
@@ -41,14 +39,8 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Dependencies
 
         private static IServiceCollection AddRepositoryServices(this IServiceCollection services)
         {
-            return services.AddScoped<IAccountRepository, AccountRepository>()
-                .AddScoped<IGiftCardRepository, GiftCardRepository>();
-        }
-
-        private static IServiceCollection AddValidatorServices(this IServiceCollection services)
-        {
-            return services.AddScoped<CreateAccountValidator>().AddScoped<LoginValidator>()
-                .AddScoped< UpdateGiftCardValidator>();
+            return services.AddScoped<IGiftCardRepository, GiftCardRepository>()
+                .AddScoped< IPurchaseInvoiceRepository, PurchaseInvoiceRepository>();
         }
 
         private static IServiceCollection AddMediatRService(this IServiceCollection services)
@@ -87,7 +79,12 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Dependencies
 
         private static IServiceCollection AddCustomServices(this IServiceCollection services)
         {
-            return services.AddScoped<AesService>().AddScoped<JwtService>().AddScoped<QRService>().AddTransient<TokenValidationService>().AddScoped< DapperService>();
+            return services.AddScoped<AesService>().AddScoped<JwtService>().AddTransient<TokenValidationService>().AddScoped<DapperService>();
+        }
+
+        private static IServiceCollection AddValidatorServices(this IServiceCollection services)
+        {
+            return services.AddScoped<PurchaseValidator>();
         }
     }
 }

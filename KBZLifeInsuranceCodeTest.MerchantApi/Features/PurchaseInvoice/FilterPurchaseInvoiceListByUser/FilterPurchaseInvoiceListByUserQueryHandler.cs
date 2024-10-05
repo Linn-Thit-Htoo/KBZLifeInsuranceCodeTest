@@ -4,7 +4,7 @@ using KBZLifeInsuranceCodeTest.Utils;
 using KBZLifeInsuranceCodeTest.Utils.Resources;
 using MediatR;
 
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice.FilterPurchaseInvoiceListByUser
+namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.FilterPurchaseInvoiceListByUser
 {
     public class FilterPurchaseInvoiceListByUserQueryHandler : IRequestHandler<FilterPurchaseInvoiceListByUserQuery, Result<PurchaseInvoiceListDTO>>
     {

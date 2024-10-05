@@ -1,10 +1,9 @@
-﻿
-using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
+﻿using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
 using KBZLifeInsuranceCodeTest.Utils;
 using KBZLifeInsuranceCodeTest.Utils.Enums;
 using MediatR;
 
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice.Purchase
+namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.Purchase
 {
     public class PurchaseCommandHandler : IRequestHandler<PurchaseCommand, Result<PurchaseInvoiceDTO>>
     {

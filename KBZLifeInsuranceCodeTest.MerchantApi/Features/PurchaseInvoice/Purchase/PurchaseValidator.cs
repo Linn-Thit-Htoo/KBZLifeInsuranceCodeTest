@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
 
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice.Purchase
+namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.Purchase
 {
     public class PurchaseValidator : AbstractValidator<PurchaseInvoiceRequestDTO>
     {

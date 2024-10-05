@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PaymentMethod.GetPaymentMethodList
+namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PaymentMethod.GetPaymentMethodList
 {
     [Route("api/v1/payment-method")]
     [ApiController]
