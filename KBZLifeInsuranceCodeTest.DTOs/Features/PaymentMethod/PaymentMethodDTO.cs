@@ -1,7 +1,6 @@
-﻿namespace KBZLifeInsuranceCodeTest.DTOs.Features.PaymentMethod
+﻿namespace KBZLifeInsuranceCodeTest.DTOs.Features.PaymentMethod;
+
+public class PaymentMethodDTO
 {
-    public class PaymentMethodDTO
-    {
-        public string PaymentMethod {  get; set; }
-    }
+    public string PaymentMethod { get; set; }
 }
