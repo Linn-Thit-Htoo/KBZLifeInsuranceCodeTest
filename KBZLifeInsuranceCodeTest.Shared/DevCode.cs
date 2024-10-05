@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace KBZLifeInsuranceCodeTest.Shared
+﻿namespace KBZLifeInsuranceCodeTest.Shared
 {
     public static class DevCode
     {
