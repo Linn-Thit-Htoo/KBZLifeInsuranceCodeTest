@@ -97,7 +97,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard
             return result;
         }
 
-        public async Task<Result<GiftCardDTO>> MigrateGiftCardsAsync(CancellationToken cs)
+        public async Task<Result<GiftCardDTO>> MigrateGiftCardAsync(CancellationToken cs)
         {
             Result<GiftCardDTO> result;
             try
