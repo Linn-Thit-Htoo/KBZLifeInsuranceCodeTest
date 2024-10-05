@@ -6,16 +6,16 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.Mi
 {
     public class MigrateGiftCardCommandHandler : IRequestHandler<MigrateGiftCardCommand, Result<GiftCardDTO>>
     {
-        private readonly IGiftCardRepository _gateCardRepository;
+        private readonly IGiftCardRepository _giftCardRepository;
 
         public MigrateGiftCardCommandHandler(IGiftCardRepository gateCardRepository)
         {
-            _gateCardRepository = gateCardRepository;
+            _giftCardRepository = gateCardRepository;
         }
 
         public async Task<Result<GiftCardDTO>> Handle(MigrateGiftCardCommand request, CancellationToken cancellationToken)
         {
-            return await _gateCardRepository.MigrateGiftCardAsync(cancellationToken);
+            return await _giftCardRepository.MigrateGiftCardAsync(cancellationToken);
         }
     }
 }

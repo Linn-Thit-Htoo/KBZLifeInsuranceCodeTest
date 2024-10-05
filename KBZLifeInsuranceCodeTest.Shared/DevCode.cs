@@ -18,6 +18,8 @@ namespace KBZLifeInsuranceCodeTest.Shared
             return source.Skip((pageNo - 1) * pageSize).Take(pageSize);
         }
 
+        public static bool IsNullOrEmpty(this string str) => string.IsNullOrWhiteSpace(str) || string.IsNullOrEmpty(str);
+
         public static string GeneratePromoCode()
         {
             Random random = new Random();
