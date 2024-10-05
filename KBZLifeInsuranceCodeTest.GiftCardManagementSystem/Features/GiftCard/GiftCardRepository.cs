@@ -155,6 +155,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard
 
                 item.CashbackPercentage = giftCardRequest.CashbackPercentage;
                 item.PhoneNumber = giftCardRequest.PhoneNumber;
+                item.UpdatedDate = DateTime.Now;
                 _context.TblGiftcards.Update(item);
 
                 await _context.SaveChangesAsync(cs);

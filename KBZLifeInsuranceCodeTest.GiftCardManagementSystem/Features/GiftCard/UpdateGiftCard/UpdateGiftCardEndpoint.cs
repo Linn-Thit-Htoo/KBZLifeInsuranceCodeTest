@@ -16,7 +16,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.Up
             _mediator = mediator;
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateGiftCard([FromBody] GiftCardRequestDTO giftCardRequest, string id, CancellationToken cs)
         {
             var command = new UpdateGiftCardCommand(id, giftCardRequest);

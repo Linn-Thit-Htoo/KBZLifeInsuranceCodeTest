@@ -3,9 +3,9 @@ using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.UpdateGiftCard
 {
-    public class UpdateGIftCardValidator : AbstractValidator<GiftCardRequestDTO>
+    public class UpdateGiftCardValidator : AbstractValidator<GiftCardRequestDTO>
     {
-        public UpdateGIftCardValidator()
+        public UpdateGiftCardValidator()
         {
             RuleFor(x => x.CashbackPercentage).GreaterThan(0)
                 .WithMessage("Cashback cannot be empty.")

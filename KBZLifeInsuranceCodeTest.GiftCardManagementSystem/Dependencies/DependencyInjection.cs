@@ -3,6 +3,7 @@ using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account;
 using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount;
 using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.Login;
 using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard;
+using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.UpdateGiftCard;
 using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice;
 using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.PurchaseInvoice.Purchase;
 using KBZLifeInsuranceCodeTest.Shared.Services.AuthServices;
@@ -48,7 +49,9 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Dependencies
 
         private static IServiceCollection AddValidatorServices(this IServiceCollection services)
         {
-            return services.AddScoped<CreateAccountValidator>().AddScoped<LoginValidator>().AddScoped<PurchaseValidator>();
+            return services.AddScoped<CreateAccountValidator>().AddScoped<LoginValidator>()
+                .AddScoped<PurchaseValidator>()
+                .AddScoped< UpdateGiftCardValidator>();
         }
 
         private static IServiceCollection AddMediatRService(this IServiceCollection services)

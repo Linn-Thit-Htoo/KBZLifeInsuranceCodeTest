@@ -9,9 +9,9 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.Up
     public class UpdateGiftCardCommandHandler : IRequestHandler<UpdateGiftCardCommand, Result<GiftCardDTO>>
     {
         private readonly IGiftCardRepository _giftCardRepository;
-        private readonly UpdateGIftCardValidator _updateGiftCardValidator;
+        private readonly UpdateGiftCardValidator _updateGiftCardValidator;
 
-        public UpdateGiftCardCommandHandler(IGiftCardRepository giftCardRepository, UpdateGIftCardValidator updateGiftCardValidator)
+        public UpdateGiftCardCommandHandler(IGiftCardRepository giftCardRepository, UpdateGiftCardValidator updateGiftCardValidator)
         {
             _giftCardRepository = giftCardRepository;
             _updateGiftCardValidator = updateGiftCardValidator;
@@ -36,7 +36,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.Up
                     goto result;
                 }
 
-                result = await _giftCardRepository.UpdateGiftCardAsync(request.GiftCardRequest, request.GiftCardId cancellationToken);
+                result = await _giftCardRepository.UpdateGiftCardAsync(request.GiftCardRequest, request.GiftCardId, cancellationToken);
             }
             catch (Exception ex)
             {
