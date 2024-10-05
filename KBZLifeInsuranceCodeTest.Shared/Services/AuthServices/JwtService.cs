@@ -1,10 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-
-namespace KBZLifeInsuranceCodeTest.Shared.Services.AuthServices
+﻿namespace KBZLifeInsuranceCodeTest.Shared.Services.AuthServices
 {
     public class JwtService
     {
