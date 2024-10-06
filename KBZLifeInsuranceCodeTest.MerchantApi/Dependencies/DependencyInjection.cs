@@ -5,11 +5,9 @@ using KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.Purchase;
 using KBZLifeInsuranceCodeTest.Shared.Services;
 using KBZLifeInsuranceCodeTest.Shared.Services.AuthServices;
 using KBZLifeInsuranceCodeTest.Shared.Services.CacheServices;
-using KBZLifeInsuranceCodeTest.Shared.Services.QRServices;
 using KBZLifeInsuranceCodeTest.Shared.Services.SecurityServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
