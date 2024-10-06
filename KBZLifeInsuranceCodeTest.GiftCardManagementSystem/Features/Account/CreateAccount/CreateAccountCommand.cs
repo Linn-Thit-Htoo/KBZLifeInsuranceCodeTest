@@ -1,5 +1,4 @@
 ﻿using KBZLifeInsuranceCodeTest.DTOs.Features.Account;
-using KBZLifeInsuranceCodeTest.Utils;
 using MediatR;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount
