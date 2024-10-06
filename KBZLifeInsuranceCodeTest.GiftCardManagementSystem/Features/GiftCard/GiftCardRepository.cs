@@ -3,6 +3,7 @@ using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
 using KBZLifeInsuranceCodeTest.DTOs.Features.PageSetting;
 using KBZLifeInsuranceCodeTest.Extensions;
 using KBZLifeInsuranceCodeTest.Shared;
+using KBZLifeInsuranceCodeTest.Shared.Services.CacheServices;
 using KBZLifeInsuranceCodeTest.Shared.Services.QRServices;
 using KBZLifeInsuranceCodeTest.Utils;
 using KBZLifeInsuranceCodeTest.Utils.Enums;
@@ -14,6 +15,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard
     {
         private readonly AppDbContext _context;
         private readonly QRService _qrService;
+        private readonly string _cacheKey;
 
         public GiftCardRepository(AppDbContext context, QRService qrService)
         {

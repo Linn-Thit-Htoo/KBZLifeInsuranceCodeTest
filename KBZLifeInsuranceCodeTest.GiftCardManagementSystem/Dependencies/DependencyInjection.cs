@@ -7,6 +7,7 @@ using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.Update
 using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Middleware;
 using KBZLifeInsuranceCodeTest.Shared.Services;
 using KBZLifeInsuranceCodeTest.Shared.Services.AuthServices;
+using KBZLifeInsuranceCodeTest.Shared.Services.CacheServices;
 using KBZLifeInsuranceCodeTest.Shared.Services.QRServices;
 using KBZLifeInsuranceCodeTest.Shared.Services.SecurityServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -50,7 +51,7 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Dependencies
         private static IServiceCollection AddValidatorServices(this IServiceCollection services)
         {
             return services.AddScoped<CreateAccountValidator>().AddScoped<LoginValidator>()
-                .AddScoped< UpdateGiftCardValidator>();
+                .AddScoped<UpdateGiftCardValidator>();
         }
 
         private static IServiceCollection AddMediatRService(this IServiceCollection services)
@@ -89,7 +90,9 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Dependencies
 
         private static IServiceCollection AddCustomServices(this IServiceCollection services)
         {
-            return services.AddScoped<AesService>().AddScoped<JwtService>().AddScoped<QRService>().AddTransient<TokenValidationService>().AddScoped< DapperService>();
+            return services.AddScoped<AesService>().AddScoped<JwtService>()
+                .AddScoped<QRService>().AddTransient<TokenValidationService>().AddScoped<DapperService>()
+                .AddScoped<RedisService>();
         }
 
         public static IApplicationBuilder UseAuthMiddleware(this WebApplication app)
