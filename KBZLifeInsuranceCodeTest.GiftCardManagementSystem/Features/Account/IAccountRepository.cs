@@ -1,8 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.Account;
-using KBZLifeInsuranceCodeTest.Shared.Services.AuthServices;
-using KBZLifeInsuranceCodeTest.Utils;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account
 {
     public interface IAccountRepository
     {
