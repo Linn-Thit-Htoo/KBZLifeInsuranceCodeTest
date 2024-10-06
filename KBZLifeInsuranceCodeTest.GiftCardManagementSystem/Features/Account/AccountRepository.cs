@@ -1,7 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.PageSetting;
-using KBZLifeInsuranceCodeTest.Extensions;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account;
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account;
 
 public class AccountRepository : IAccountRepository
 {
