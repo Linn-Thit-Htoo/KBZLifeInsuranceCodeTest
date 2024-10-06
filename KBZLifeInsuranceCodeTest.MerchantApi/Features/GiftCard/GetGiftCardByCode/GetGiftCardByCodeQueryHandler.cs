@@ -1,4 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.Shared;
+﻿global using KBZLifeInsuranceCodeTest.Shared;
 
 namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.GiftCard.GetGiftCardByCode;
 
