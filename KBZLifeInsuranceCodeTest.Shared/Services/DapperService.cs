@@ -9,7 +9,11 @@ public class DapperService
         _configuration = configuration;
     }
 
-    public async Task<List<T>> QueryAsync<T>(string query, object? parameters = null, CommandType commandType = CommandType.Text)
+    public async Task<List<T>> QueryAsync<T>(
+        string query,
+        object? parameters = null,
+        CommandType commandType = CommandType.Text
+    )
     {
         try
         {
@@ -24,12 +28,20 @@ public class DapperService
         }
     }
 
-    public async Task<T> QueryFirstOrDefaultAsync<T>(string query, object? parameters = null, CommandType commandType = CommandType.Text)
+    public async Task<T> QueryFirstOrDefaultAsync<T>(
+        string query,
+        object? parameters = null,
+        CommandType commandType = CommandType.Text
+    )
     {
         try
         {
             using IDbConnection db = GetSqlConnection();
-            var item = await db.QueryFirstOrDefaultAsync<T>(query, parameters, commandType: commandType);
+            var item = await db.QueryFirstOrDefaultAsync<T>(
+                query,
+                parameters,
+                commandType: commandType
+            );
 
             return item!;
         }
@@ -39,5 +51,6 @@ public class DapperService
         }
     }
 
-    private MySqlConnection GetSqlConnection() => new(_configuration.GetConnectionString("DbConnection"));
+    private MySqlConnection GetSqlConnection() =>
+        new(_configuration.GetConnectionString("DbConnection"));
 }
