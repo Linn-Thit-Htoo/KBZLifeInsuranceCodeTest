@@ -1,8 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.Account;
-using KBZLifeInsuranceCodeTest.Utils;
-using MediatR;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.GetAccountList
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.GetAccountList
 {
     public class GetAccountListQuery : IRequest<Result<AccountListDTO>>
     {
