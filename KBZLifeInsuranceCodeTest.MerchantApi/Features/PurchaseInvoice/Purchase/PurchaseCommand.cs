@@ -1,12 +1,11 @@
-﻿namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.Purchase
-{
-    public class PurchaseCommand : IRequest<Result<PurchaseInvoiceDTO>>
-    {
-        public PurchaseInvoiceRequestDTO PurchaseInvoiceRequest { get; set; }
+﻿namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.Purchase;
 
-        public PurchaseCommand(PurchaseInvoiceRequestDTO purchaseInvoiceRequest)
-        {
-            PurchaseInvoiceRequest = purchaseInvoiceRequest;
-        }
+public class PurchaseCommand : IRequest<Result<PurchaseInvoiceDTO>>
+{
+    public PurchaseInvoiceRequestDTO PurchaseInvoiceRequest { get; set; }
+
+    public PurchaseCommand(PurchaseInvoiceRequestDTO purchaseInvoiceRequest)
+    {
+        PurchaseInvoiceRequest = purchaseInvoiceRequest;
     }
 }
