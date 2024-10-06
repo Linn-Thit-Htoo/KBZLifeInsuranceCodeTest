@@ -33,7 +33,7 @@ public class JwtService
                 _configuration["Jwt:Issuer"],
                 _configuration["Jwt:Audience"],
                 claims,
-                expires: DateTime.UtcNow.AddHours(10),
+                expires: DateTime.UtcNow.AddMinutes(15),
                 signingCredentials: signIn
             );
             return new JwtSecurityTokenHandler().WriteToken(token);
