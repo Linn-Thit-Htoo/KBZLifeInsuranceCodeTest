@@ -2,14 +2,10 @@
 
 public partial class AppDbContext : DbContext
 {
-    public AppDbContext()
-    {
-    }
+    public AppDbContext() { }
 
     public AppDbContext(DbContextOptions<AppDbContext> options)
-        : base(options)
-    {
-    }
+        : base(options) { }
 
     public virtual DbSet<TblGiftcard> TblGiftcards { get; set; }
 
@@ -57,7 +53,9 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.PaymentMethod).HasMaxLength(60);
             entity.Property(e => e.UserId).HasMaxLength(60);
 
-            entity.HasOne(d => d.User).WithMany(p => p.TblPurchaseInvoices)
+            entity
+                .HasOne(d => d.User)
+                .WithMany(p => p.TblPurchaseInvoices)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_User");
@@ -78,7 +76,9 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.RecipientPhoneNumber).HasMaxLength(15);
             entity.Property(e => e.TypeOfBuying).HasMaxLength(45);
 
-            entity.HasOne(d => d.GiftCard).WithMany(p => p.TblPurchaseInvoiceDetails)
+            entity
+                .HasOne(d => d.GiftCard)
+                .WithMany(p => p.TblPurchaseInvoiceDetails)
                 .HasForeignKey(d => d.GiftCardId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_GiftCard_Purchase_Invoice_Detail");
