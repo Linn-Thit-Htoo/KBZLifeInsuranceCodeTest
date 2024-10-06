@@ -1,25 +1,38 @@
 ﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.UpdateGiftCard;
 
-public class UpdateGiftCardCommandHandler : IRequestHandler<UpdateGiftCardCommand, Result<GiftCardDTO>>
+public class UpdateGiftCardCommandHandler
+    : IRequestHandler<UpdateGiftCardCommand, Result<GiftCardDTO>>
 {
     private readonly IGiftCardRepository _giftCardRepository;
     private readonly UpdateGiftCardValidator _updateGiftCardValidator;
 
-    public UpdateGiftCardCommandHandler(IGiftCardRepository giftCardRepository, UpdateGiftCardValidator updateGiftCardValidator)
+    public UpdateGiftCardCommandHandler(
+        IGiftCardRepository giftCardRepository,
+        UpdateGiftCardValidator updateGiftCardValidator
+    )
     {
         _giftCardRepository = giftCardRepository;
         _updateGiftCardValidator = updateGiftCardValidator;
     }
 
-    public async Task<Result<GiftCardDTO>> Handle(UpdateGiftCardCommand request, CancellationToken cancellationToken)
+    public async Task<Result<GiftCardDTO>> Handle(
+        UpdateGiftCardCommand request,
+        CancellationToken cancellationToken
+    )
     {
         Result<GiftCardDTO> result;
         try
         {
-            var validationResult = await _updateGiftCardValidator.ValidateAsync(request.GiftCardRequest, cancellationToken);
+            var validationResult = await _updateGiftCardValidator.ValidateAsync(
+                request.GiftCardRequest,
+                cancellationToken
+            );
             if (!validationResult.IsValid)
             {
-                string errors = string.Join(", ", validationResult.Errors.Select(x => x.ErrorMessage));
+                string errors = string.Join(
+                    ", ",
+                    validationResult.Errors.Select(x => x.ErrorMessage)
+                );
                 result = Result<GiftCardDTO>.Fail(errors);
                 goto result;
             }
@@ -30,7 +43,11 @@ public class UpdateGiftCardCommandHandler : IRequestHandler<UpdateGiftCardComman
                 goto result;
             }
 
-            result = await _giftCardRepository.UpdateGiftCardAsync(request.GiftCardRequest, request.GiftCardId, cancellationToken);
+            result = await _giftCardRepository.UpdateGiftCardAsync(
+                request.GiftCardRequest,
+                request.GiftCardId,
+                cancellationToken
+            );
         }
         catch (Exception ex)
         {
