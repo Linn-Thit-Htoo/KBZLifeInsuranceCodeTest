@@ -1,7 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.Account;
-using MediatR;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount;
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount;
 
 public class CreateAccountCommand : IRequest<Result<AccountDTO>>
 {

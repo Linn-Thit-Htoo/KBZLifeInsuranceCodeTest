@@ -1,5 +1,6 @@
 ﻿global using System.Text;
 global using KBZLifeInsuranceCodeTest.DbService.AppDbContextModels;
+global using KBZLifeInsuranceCodeTest.DTOs.Features.Account;
 global using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Dependencies;
 global using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account;
 global using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount;
@@ -14,6 +15,7 @@ global using KBZLifeInsuranceCodeTest.Shared.Services.CacheServices;
 global using KBZLifeInsuranceCodeTest.Shared.Services.QRServices;
 global using KBZLifeInsuranceCodeTest.Shared.Services.SecurityServices;
 global using KBZLifeInsuranceCodeTest.Utils;
+global using MediatR;
 global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.IdentityModel.Tokens;
