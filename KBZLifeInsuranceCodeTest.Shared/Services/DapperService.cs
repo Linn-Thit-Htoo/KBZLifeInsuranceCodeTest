@@ -1,44 +1,43 @@
-﻿namespace KBZLifeInsuranceCodeTest.Shared.Services
+﻿namespace KBZLifeInsuranceCodeTest.Shared.Services;
+
+public class DapperService
 {
-    public class DapperService
+    private readonly IConfiguration _configuration;
+
+    public DapperService(IConfiguration configuration)
     {
-        private readonly IConfiguration _configuration;
-
-        public DapperService(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-
-        public async Task<List<T>> QueryAsync<T>(string query, object? parameters = null, CommandType commandType = CommandType.Text)
-        {
-            try
-            {
-                using IDbConnection db = GetSqlConnection();
-                var lst = await db.QueryAsync<T>(query, parameters, commandType: commandType);
-
-                return lst.ToList();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        public async Task<T> QueryFirstOrDefaultAsync<T>(string query, object? parameters = null, CommandType commandType = CommandType.Text)
-        {
-            try
-            {
-                using IDbConnection db = GetSqlConnection();
-                var item = await db.QueryFirstOrDefaultAsync<T>(query, parameters, commandType: commandType);
-
-                return item!;
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        private MySqlConnection GetSqlConnection() => new(_configuration.GetConnectionString("DbConnection"));
+        _configuration = configuration;
     }
+
+    public async Task<List<T>> QueryAsync<T>(string query, object? parameters = null, CommandType commandType = CommandType.Text)
+    {
+        try
+        {
+            using IDbConnection db = GetSqlConnection();
+            var lst = await db.QueryAsync<T>(query, parameters, commandType: commandType);
+
+            return lst.ToList();
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+    }
+
+    public async Task<T> QueryFirstOrDefaultAsync<T>(string query, object? parameters = null, CommandType commandType = CommandType.Text)
+    {
+        try
+        {
+            using IDbConnection db = GetSqlConnection();
+            var item = await db.QueryFirstOrDefaultAsync<T>(query, parameters, commandType: commandType);
+
+            return item!;
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+    }
+
+    private MySqlConnection GetSqlConnection() => new(_configuration.GetConnectionString("DbConnection"));
 }
