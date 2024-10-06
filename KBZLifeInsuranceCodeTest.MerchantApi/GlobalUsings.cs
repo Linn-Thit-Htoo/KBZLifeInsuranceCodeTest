@@ -14,4 +14,4 @@ global using MediatR;
 global using Microsoft.AspNetCore.Mvc;
 global using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
 global using KBZLifeInsuranceCodeTest.Utils;
-
+global using KBZLifeInsuranceCodeTest.Shared;
