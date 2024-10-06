@@ -1,6 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.Utils.Resources;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.GetAccountList;
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.GetAccountList;
 
 public class GetAccountListQueryHandler : IRequestHandler<GetAccountListQuery, Result<AccountListDTO>>
 {
