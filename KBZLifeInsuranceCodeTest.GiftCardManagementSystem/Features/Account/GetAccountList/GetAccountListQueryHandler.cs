@@ -1,6 +1,7 @@
 ﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.GetAccountList;
 
-public class GetAccountListQueryHandler : IRequestHandler<GetAccountListQuery, Result<AccountListDTO>>
+public class GetAccountListQueryHandler
+    : IRequestHandler<GetAccountListQuery, Result<AccountListDTO>>
 {
     private readonly IAccountRepository _accountRepository;
 
@@ -9,7 +10,10 @@ public class GetAccountListQueryHandler : IRequestHandler<GetAccountListQuery, R
         _accountRepository = accountRepository;
     }
 
-    public async Task<Result<AccountListDTO>> Handle(GetAccountListQuery request, CancellationToken cancellationToken)
+    public async Task<Result<AccountListDTO>> Handle(
+        GetAccountListQuery request,
+        CancellationToken cancellationToken
+    )
     {
         Result<AccountListDTO> result;
         try
@@ -26,7 +30,11 @@ public class GetAccountListQueryHandler : IRequestHandler<GetAccountListQuery, R
                 goto result;
             }
 
-            result = await _accountRepository.GetAccountListAsync(request.PageNo, request.PageSize, cancellationToken);
+            result = await _accountRepository.GetAccountListAsync(
+                request.PageNo,
+                request.PageSize,
+                cancellationToken
+            );
         }
         catch (Exception ex)
         {
