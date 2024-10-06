@@ -1,9 +1,4 @@
 ﻿using KBZLifeInsuranceCodeTest.DTOs.Features.PaymentMethod;
-using KBZLifeInsuranceCodeTest.Shared;
-using KBZLifeInsuranceCodeTest.Utils;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 
 namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PaymentMethod.GetPaymentMethodList
 {
