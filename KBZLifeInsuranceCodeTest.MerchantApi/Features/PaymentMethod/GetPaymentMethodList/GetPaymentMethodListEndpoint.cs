@@ -1,6 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.PaymentMethod;
-
-namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PaymentMethod.GetPaymentMethodList;
+﻿namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PaymentMethod.GetPaymentMethodList;
 
 [Route("api/v1/payment-method")]
 [ApiController]
