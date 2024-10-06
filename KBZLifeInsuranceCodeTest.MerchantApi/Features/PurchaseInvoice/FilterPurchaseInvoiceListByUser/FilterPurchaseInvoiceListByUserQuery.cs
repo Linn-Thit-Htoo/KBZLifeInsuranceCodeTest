@@ -1,6 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
-
-namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.FilterPurchaseInvoiceListByUser;
+﻿namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.FilterPurchaseInvoiceListByUser;
 
 public class FilterPurchaseInvoiceListByUserQuery : IRequest<Result<PurchaseInvoiceListDTO>>
 {
