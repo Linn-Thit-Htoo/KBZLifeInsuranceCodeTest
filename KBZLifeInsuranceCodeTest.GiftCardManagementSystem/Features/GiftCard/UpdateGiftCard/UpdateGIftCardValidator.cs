@@ -1,7 +1,4 @@
-﻿using FluentValidation;
-using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.UpdateGiftCard
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.UpdateGiftCard
 {
     public class UpdateGiftCardValidator : AbstractValidator<GiftCardRequestDTO>
     {
