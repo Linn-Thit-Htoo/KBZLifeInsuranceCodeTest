@@ -1,7 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.Account;
-using KBZLifeInsuranceCodeTest.Utils;
-using KBZLifeInsuranceCodeTest.Utils.Resources;
-using MediatR;
+﻿using KBZLifeInsuranceCodeTest.Utils.Resources;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.GetAccountList
 {
