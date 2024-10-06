@@ -1,6 +1,7 @@
 ﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.DeactivateGiftCard;
 
-public class DeactivateGiftCardCommandHandler : IRequestHandler<DeactivateGiftCardCommand, Result<GiftCardDTO>>
+public class DeactivateGiftCardCommandHandler
+    : IRequestHandler<DeactivateGiftCardCommand, Result<GiftCardDTO>>
 {
     private readonly IGiftCardRepository _giftCardRepository;
 
@@ -9,7 +10,10 @@ public class DeactivateGiftCardCommandHandler : IRequestHandler<DeactivateGiftCa
         _giftCardRepository = giftCardRepository;
     }
 
-    public async Task<Result<GiftCardDTO>> Handle(DeactivateGiftCardCommand request, CancellationToken cancellationToken)
+    public async Task<Result<GiftCardDTO>> Handle(
+        DeactivateGiftCardCommand request,
+        CancellationToken cancellationToken
+    )
     {
         Result<GiftCardDTO> result;
         try
@@ -20,7 +24,10 @@ public class DeactivateGiftCardCommandHandler : IRequestHandler<DeactivateGiftCa
                 goto result;
             }
 
-            result = await _giftCardRepository.DeactivateGiftCardAsync(request.GiftCardId, cancellationToken);
+            result = await _giftCardRepository.DeactivateGiftCardAsync(
+                request.GiftCardId,
+                cancellationToken
+            );
         }
         catch (Exception ex)
         {
