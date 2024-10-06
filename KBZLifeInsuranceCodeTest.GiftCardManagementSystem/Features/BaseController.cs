@@ -1,8 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.Shared;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features
 {
     [Route("api/[controller]")]
     [ApiController]
