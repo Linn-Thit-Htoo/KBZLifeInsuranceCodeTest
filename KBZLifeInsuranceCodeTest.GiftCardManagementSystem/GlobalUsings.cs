@@ -1,5 +1,6 @@
 ﻿global using System.Text;
 global using KBZLifeInsuranceCodeTest.DbService.AppDbContextModels;
+global using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Dependencies;
 global using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account;
 global using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount;
 global using KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.Login;
