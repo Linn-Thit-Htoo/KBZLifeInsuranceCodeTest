@@ -1,7 +1,4 @@
-﻿global using MediatR;
-global using Microsoft.AspNetCore.Mvc;
-
-namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.GiftCard.GetGiftCardByCode
+﻿namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.GiftCard.GetGiftCardByCode
 {
     [Route("api/v1/gift-card")]
     [ApiController]
