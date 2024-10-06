@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿global using Microsoft.EntityFrameworkCore;
 
 namespace KBZLifeInsuranceCodeTest.DbService.AppDbContextModels;
 
