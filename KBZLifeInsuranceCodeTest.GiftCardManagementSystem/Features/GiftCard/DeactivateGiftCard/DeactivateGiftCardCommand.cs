@@ -1,7 +1,4 @@
-﻿
-using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
-using KBZLifeInsuranceCodeTest.Utils;
-using MediatR;
+﻿using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.DeactivateGiftCard
 {
