@@ -1,9 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.Shared.Services.SecurityServices;
-using KBZLifeInsuranceCodeTest.Utils;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Aes
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Aes
 {
     [Route("api/v1")]
     [ApiController]
