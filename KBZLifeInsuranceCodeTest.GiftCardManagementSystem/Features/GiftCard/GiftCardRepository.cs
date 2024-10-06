@@ -1,15 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DbService.AppDbContextModels;
-using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
-using KBZLifeInsuranceCodeTest.DTOs.Features.PageSetting;
-using KBZLifeInsuranceCodeTest.Extensions;
-using KBZLifeInsuranceCodeTest.Shared;
-using KBZLifeInsuranceCodeTest.Shared.Services.CacheServices;
-using KBZLifeInsuranceCodeTest.Shared.Services.QRServices;
-using KBZLifeInsuranceCodeTest.Utils;
-using KBZLifeInsuranceCodeTest.Utils.Enums;
-using Microsoft.EntityFrameworkCore;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard
 {
     public class GiftCardRepository : IGiftCardRepository
     {
