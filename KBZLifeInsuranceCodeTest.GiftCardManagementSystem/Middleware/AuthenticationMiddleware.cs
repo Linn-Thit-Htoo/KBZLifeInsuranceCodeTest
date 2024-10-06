@@ -51,7 +51,7 @@ public class AuthenticationMiddleware
             goto result;
         }
 
-        result:
+    result:
         result = Result<string>.UnAuthorized();
         await context.Response.WriteAsync(result.ToJson());
     }
