@@ -1,15 +1,14 @@
-﻿namespace KBZLifeInsuranceCodeTest.Utils.Enums
+﻿namespace KBZLifeInsuranceCodeTest.Utils.Enums;
+
+public enum EnumStatusCode
 {
-    public enum EnumStatusCode
-    {
-        OK = 200,
-        Created = 201,
-        Accepted = 202,
-        NoContent = 204,
-        BadRequest = 400,
-        Unauthorized = 401,
-        NotFound = 404,
-        Conflict = 409,
-        InternalServerError = 500
-    }
+    OK = 200,
+    Created = 201,
+    Accepted = 202,
+    NoContent = 204,
+    BadRequest = 400,
+    Unauthorized = 401,
+    NotFound = 404,
+    Conflict = 409,
+    InternalServerError = 500
 }
