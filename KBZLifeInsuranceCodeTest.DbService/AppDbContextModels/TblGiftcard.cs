@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace KBZLifeInsuranceCodeTest.DbService.AppDbContextModels;
+﻿namespace KBZLifeInsuranceCodeTest.DbService.AppDbContextModels;
 
 public partial class TblGiftcard
 {
