@@ -1,6 +1,4 @@
-﻿using QRCoder;
-
-namespace KBZLifeInsuranceCodeTest.Shared.Services.QRServices;
+﻿namespace KBZLifeInsuranceCodeTest.Shared.Services.QRServices;
 
 public class QRService
 {
