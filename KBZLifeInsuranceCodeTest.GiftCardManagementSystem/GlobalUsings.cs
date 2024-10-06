@@ -19,3 +19,4 @@ global using MediatR;
 global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.IdentityModel.Tokens;
+global using KBZLifeInsuranceCodeTest.Utils.Enums;

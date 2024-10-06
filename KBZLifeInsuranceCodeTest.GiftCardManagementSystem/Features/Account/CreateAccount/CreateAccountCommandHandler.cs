@@ -1,6 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.Utils.Enums;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount;
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount;
 
 public class CreateAccountCommandHandler : IRequestHandler<CreateAccountCommand, Result<AccountDTO>>
 {
