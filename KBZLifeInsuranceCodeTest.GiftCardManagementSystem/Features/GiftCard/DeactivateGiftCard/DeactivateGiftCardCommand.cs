@@ -1,4 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
+﻿global using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.DeactivateGiftCard;
 
