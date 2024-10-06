@@ -1,7 +1,4 @@
-﻿global using KBZLifeInsuranceCodeTest.DTOs.Features.PageSetting;
-global using KBZLifeInsuranceCodeTest.Extensions;
-
-namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.GiftCard;
+﻿namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.GiftCard;
 
 public class GiftCardRepository : IGiftCardRepository
 {
