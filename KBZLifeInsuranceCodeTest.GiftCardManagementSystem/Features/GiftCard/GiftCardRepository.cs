@@ -15,7 +15,6 @@ namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard
     {
         private readonly AppDbContext _context;
         private readonly QRService _qrService;
-        private readonly string _cacheKey;
 
         public GiftCardRepository(AppDbContext context, QRService qrService)
         {

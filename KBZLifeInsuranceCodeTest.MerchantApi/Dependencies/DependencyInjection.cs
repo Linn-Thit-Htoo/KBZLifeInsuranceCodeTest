@@ -4,6 +4,7 @@ using KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice;
 using KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.Purchase;
 using KBZLifeInsuranceCodeTest.Shared.Services;
 using KBZLifeInsuranceCodeTest.Shared.Services.AuthServices;
+using KBZLifeInsuranceCodeTest.Shared.Services.CacheServices;
 using KBZLifeInsuranceCodeTest.Shared.Services.QRServices;
 using KBZLifeInsuranceCodeTest.Shared.Services.SecurityServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -40,7 +41,7 @@ namespace KBZLifeInsuranceCodeTest.MerchantApi.Dependencies
         private static IServiceCollection AddRepositoryServices(this IServiceCollection services)
         {
             return services.AddScoped<IGiftCardRepository, GiftCardRepository>()
-                .AddScoped< IPurchaseInvoiceRepository, PurchaseInvoiceRepository>();
+                .AddScoped<IPurchaseInvoiceRepository, PurchaseInvoiceRepository>();
         }
 
         private static IServiceCollection AddMediatRService(this IServiceCollection services)
@@ -79,7 +80,9 @@ namespace KBZLifeInsuranceCodeTest.MerchantApi.Dependencies
 
         private static IServiceCollection AddCustomServices(this IServiceCollection services)
         {
-            return services.AddScoped<AesService>().AddScoped<JwtService>().AddTransient<TokenValidationService>().AddScoped<DapperService>();
+            return services.AddScoped<AesService>().AddScoped<JwtService>()
+                .AddTransient<TokenValidationService>().AddScoped<DapperService>()
+                .AddScoped<RedisService>();
         }
 
         private static IServiceCollection AddValidatorServices(this IServiceCollection services)

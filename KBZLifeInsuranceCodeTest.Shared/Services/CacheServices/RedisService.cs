@@ -15,10 +15,10 @@ namespace KBZLifeInsuranceCodeTest.Shared.Services.CacheServices
         public RedisService(IConfiguration configuration)
         {
             _configuration = configuration;
-            _redisExpirationLimit = Convert.ToInt32(_configuration.GetSection("RedisCacheExpirationLimit"));
+            _redisExpirationLimit = Convert.ToInt32(_configuration.GetSection("RedisCacheExpirationLimit").Value!);
         }
 
-        public async Task SetAsync<T>(string key, object value)
+        public async Task SetAsync(string key, object value)
         {
             try
             {
@@ -43,9 +43,13 @@ namespace KBZLifeInsuranceCodeTest.Shared.Services.CacheServices
 
                 var redisCache = redisConnection.GetDatabase();
                 string? jsonStr = await redisCache.StringGetAsync(key);
-                ArgumentNullException.ThrowIfNullOrEmpty(jsonStr);
 
-                return jsonStr.ToObject<List<T>>();
+                if (jsonStr!.IsNullOrEmpty())
+                {
+                    return new List<T>();
+                }
+
+                return jsonStr!.ToObject<List<T>>();
             }
             catch (Exception ex)
             {

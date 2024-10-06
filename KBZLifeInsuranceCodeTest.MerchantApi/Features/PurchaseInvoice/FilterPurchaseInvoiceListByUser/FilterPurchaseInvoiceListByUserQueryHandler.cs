@@ -32,7 +32,7 @@ namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.FilterPu
                     goto result;
                 }
 
-                result = await _purchaseInvoiceRepository.FilterPurchaseInvoiceListByUserAsync(request.UserId, request.CardStatus, cancellationToken);
+                result = await _purchaseInvoiceRepository.FilterPurchaseInvoiceListByUserAsyncV1(request.UserId, request.CardStatus, cancellationToken);
             }
             catch (Exception ex)
             {
