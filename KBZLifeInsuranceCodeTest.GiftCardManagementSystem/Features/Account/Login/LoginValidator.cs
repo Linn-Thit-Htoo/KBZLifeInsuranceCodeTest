@@ -1,7 +1,4 @@
-﻿using FluentValidation;
-using KBZLifeInsuranceCodeTest.DTOs.Features.Account;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.Login
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.Login
 {
     public class LoginValidator : AbstractValidator<LoginRequestDTO>
     {
