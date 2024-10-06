@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
 
 namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.Purchase
 {
