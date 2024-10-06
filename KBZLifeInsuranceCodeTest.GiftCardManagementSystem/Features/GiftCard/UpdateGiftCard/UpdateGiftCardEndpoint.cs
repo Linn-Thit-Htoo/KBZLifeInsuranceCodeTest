@@ -1,23 +1,22 @@
-﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.UpdateGiftCard
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.UpdateGiftCard;
+
+[Route("api/v1/gift-card")]
+[ApiController]
+public class UpdateGiftCardEndpoint : BaseController
 {
-    [Route("api/v1/gift-card")]
-    [ApiController]
-    public class UpdateGiftCardEndpoint : BaseController
+    private readonly IMediator _mediator;
+
+    public UpdateGiftCardEndpoint(IMediator mediator)
     {
-        private readonly IMediator _mediator;
+        _mediator = mediator;
+    }
 
-        public UpdateGiftCardEndpoint(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateGiftCard([FromBody] GiftCardRequestDTO giftCardRequest, string id, CancellationToken cs)
+    {
+        var command = new UpdateGiftCardCommand(id, giftCardRequest);
+        var result = await _mediator.Send(command, cs);
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateGiftCard([FromBody] GiftCardRequestDTO giftCardRequest, string id, CancellationToken cs)
-        {
-            var command = new UpdateGiftCardCommand(id, giftCardRequest);
-            var result = await _mediator.Send(command, cs);
-
-            return Content(result);
-        }
+        return Content(result);
     }
 }
