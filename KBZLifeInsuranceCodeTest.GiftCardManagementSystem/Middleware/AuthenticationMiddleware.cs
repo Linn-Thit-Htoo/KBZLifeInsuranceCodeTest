@@ -1,7 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.Shared;
-using KBZLifeInsuranceCodeTest.Utils;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Middleware;
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Middleware;
 
 public class AuthenticationMiddleware
 {
