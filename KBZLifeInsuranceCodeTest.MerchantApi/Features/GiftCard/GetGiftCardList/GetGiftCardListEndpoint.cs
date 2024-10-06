@@ -1,8 +1,4 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.GiftCard.GetGiftCardList
+﻿namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.GiftCard.GetGiftCardList
 {
     [Route("api/v1/gift-card")]
     [ApiController]
