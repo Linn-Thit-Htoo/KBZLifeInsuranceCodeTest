@@ -12,7 +12,11 @@ public class UpdateGiftCardEndpoint : BaseController
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateGiftCard([FromBody] GiftCardRequestDTO giftCardRequest, string id, CancellationToken cs)
+    public async Task<IActionResult> UpdateGiftCard(
+        [FromBody] GiftCardRequestDTO giftCardRequest,
+        string id,
+        CancellationToken cs
+    )
     {
         var command = new UpdateGiftCardCommand(id, giftCardRequest);
         var result = await _mediator.Send(command, cs);
