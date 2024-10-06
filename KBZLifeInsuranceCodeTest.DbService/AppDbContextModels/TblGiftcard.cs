@@ -30,5 +30,6 @@ public partial class TblGiftcard
 
     public int? CashbackPercentage { get; set; }
 
-    public virtual ICollection<TblPurchaseInvoiceDetail> TblPurchaseInvoiceDetails { get; set; } = new List<TblPurchaseInvoiceDetail>();
+    public virtual ICollection<TblPurchaseInvoiceDetail> TblPurchaseInvoiceDetails { get; set; } =
+        new List<TblPurchaseInvoiceDetail>();
 }
