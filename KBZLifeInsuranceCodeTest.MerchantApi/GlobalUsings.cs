@@ -21,3 +21,6 @@ global using KBZLifeInsuranceCodeTest.Extensions;
 global using KBZLifeInsuranceCodeTest.DTOs.Features.PaymentMethod;
 global using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
 global using FluentValidation;
+global using System.Data;
+global using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoiceDetail;
+global using KBZLifeInsuranceCodeTest.Utils.Enums;

@@ -1,8 +1,4 @@
-﻿using System.Data;
-using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoiceDetail;
-using KBZLifeInsuranceCodeTest.Utils.Enums;
-
-namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice;
+﻿namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice;
 
 public class PurchaseInvoiceRepository : IPurchaseInvoiceRepository
 {
