@@ -1,15 +1,21 @@
 ﻿namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.FilterPurchaseInvoiceListByUser;
 
-public class FilterPurchaseInvoiceListByUserQueryHandler : IRequestHandler<FilterPurchaseInvoiceListByUserQuery, Result<PurchaseInvoiceListDTO>>
+public class FilterPurchaseInvoiceListByUserQueryHandler
+    : IRequestHandler<FilterPurchaseInvoiceListByUserQuery, Result<PurchaseInvoiceListDTO>>
 {
     private readonly IPurchaseInvoiceRepository _purchaseInvoiceRepository;
 
-    public FilterPurchaseInvoiceListByUserQueryHandler(IPurchaseInvoiceRepository purchaseInvoiceRepository)
+    public FilterPurchaseInvoiceListByUserQueryHandler(
+        IPurchaseInvoiceRepository purchaseInvoiceRepository
+    )
     {
         _purchaseInvoiceRepository = purchaseInvoiceRepository;
     }
 
-    public async Task<Result<PurchaseInvoiceListDTO>> Handle(FilterPurchaseInvoiceListByUserQuery request, CancellationToken cancellationToken)
+    public async Task<Result<PurchaseInvoiceListDTO>> Handle(
+        FilterPurchaseInvoiceListByUserQuery request,
+        CancellationToken cancellationToken
+    )
     {
         Result<PurchaseInvoiceListDTO> result;
         try
@@ -26,7 +32,11 @@ public class FilterPurchaseInvoiceListByUserQueryHandler : IRequestHandler<Filte
                 goto result;
             }
 
-            result = await _purchaseInvoiceRepository.FilterPurchaseInvoiceListByUserAsyncV1(request.UserId, request.CardStatus, cancellationToken);
+            result = await _purchaseInvoiceRepository.FilterPurchaseInvoiceListByUserAsyncV1(
+                request.UserId,
+                request.CardStatus,
+                cancellationToken
+            );
         }
         catch (Exception ex)
         {
