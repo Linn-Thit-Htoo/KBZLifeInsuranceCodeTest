@@ -1,9 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
-using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.UpdateGiftCard
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.UpdateGiftCard
 {
     [Route("api/v1/gift-card")]
     [ApiController]
