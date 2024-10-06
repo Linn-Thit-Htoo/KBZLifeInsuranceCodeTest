@@ -12,3 +12,6 @@ global using Microsoft.EntityFrameworkCore;
 global using Microsoft.IdentityModel.Tokens;
 global using MediatR;
 global using Microsoft.AspNetCore.Mvc;
+global using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
+global using KBZLifeInsuranceCodeTest.Utils;
+

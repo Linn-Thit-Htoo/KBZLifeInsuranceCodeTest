@@ -1,7 +1,4 @@
-﻿global using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
-global using KBZLifeInsuranceCodeTest.Utils;
-
-namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.GiftCard.GetGiftCardByCode;
+﻿namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.GiftCard.GetGiftCardByCode;
 
 public class GetGiftCardByCodeQuery : IRequest<Result<GiftCardDTO>>
 {
