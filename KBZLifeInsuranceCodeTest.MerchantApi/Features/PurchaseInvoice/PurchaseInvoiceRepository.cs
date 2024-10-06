@@ -1,6 +1,6 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoiceDetail;
+﻿using System.Data;
+using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoiceDetail;
 using KBZLifeInsuranceCodeTest.Utils.Enums;
-using System.Data;
 
 namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice;
 
@@ -11,7 +11,12 @@ public class PurchaseInvoiceRepository : IPurchaseInvoiceRepository
     private readonly DapperService _dapperService;
     private readonly RedisService _redisService;
 
-    public PurchaseInvoiceRepository(AppDbContext context, IConfiguration configuration, DapperService dapperService, RedisService redisService)
+    public PurchaseInvoiceRepository(
+        AppDbContext context,
+        IConfiguration configuration,
+        DapperService dapperService,
+        RedisService redisService
+    )
     {
         _context = context;
         _configuration = configuration;
@@ -19,12 +24,19 @@ public class PurchaseInvoiceRepository : IPurchaseInvoiceRepository
         _redisService = redisService;
     }
 
-    public async Task<Result<PurchaseInvoiceListDTO>> FilterPurchaseInvoiceListByUserAsync(string userId, string cardStatus, CancellationToken cs)
+    public async Task<Result<PurchaseInvoiceListDTO>> FilterPurchaseInvoiceListByUserAsync(
+        string userId,
+        string cardStatus,
+        CancellationToken cs
+    )
     {
         Result<PurchaseInvoiceListDTO> result;
         try
         {
-            bool userExists = await _context.TblUsers.AnyAsync(x => x.UserId == userId && !x.IsDeleted, cancellationToken: cs);
+            bool userExists = await _context.TblUsers.AnyAsync(
+                x => x.UserId == userId && !x.IsDeleted,
+                cancellationToken: cs
+            );
             if (!userExists)
             {
                 result = Result<PurchaseInvoiceListDTO>.NotFound("User not found.");
@@ -32,21 +44,28 @@ public class PurchaseInvoiceRepository : IPurchaseInvoiceRepository
             }
 
             List<PurchaseInvoiceDTO> purchaseInvoiceDTOs = new();
-            var invoiceLstByUser = await _dapperService.QueryAsync<PurchaseInvoiceDataModel>(CommonQuery.Sp_FilterPurchaseInvoiceByUserId, new { UserId = userId }, CommandType.StoredProcedure);
+            var invoiceLstByUser = await _dapperService.QueryAsync<PurchaseInvoiceDataModel>(
+                CommonQuery.Sp_FilterPurchaseInvoiceByUserId,
+                new { UserId = userId },
+                CommandType.StoredProcedure
+            );
             foreach (var invoice in invoiceLstByUser)
             {
-                var parameters = new
-                {
-                    invoice.InvoiceNo,
-                    Status = cardStatus
-                };
-                var invoiceDetailLst = await _dapperService.QueryAsync<PurchaseInvoiceDetailDataModel>(CommonQuery.Sp_GetGiftCardDetailsByInvoiceAndStatus, parameters, CommandType.StoredProcedure);
+                var parameters = new { invoice.InvoiceNo, Status = cardStatus };
+                var invoiceDetailLst =
+                    await _dapperService.QueryAsync<PurchaseInvoiceDetailDataModel>(
+                        CommonQuery.Sp_GetGiftCardDetailsByInvoiceAndStatus,
+                        parameters,
+                        CommandType.StoredProcedure
+                    );
 
-                purchaseInvoiceDTOs.Add(new PurchaseInvoiceDTO()
-                {
-                    PurchaseInvoice = invoice,
-                    PurchaseInvoiceDetails = invoiceDetailLst
-                });
+                purchaseInvoiceDTOs.Add(
+                    new PurchaseInvoiceDTO()
+                    {
+                        PurchaseInvoice = invoice,
+                        PurchaseInvoiceDetails = invoiceDetailLst
+                    }
+                );
             }
 
             var model = new PurchaseInvoiceListDTO(purchaseInvoiceDTOs);
@@ -61,7 +80,11 @@ public class PurchaseInvoiceRepository : IPurchaseInvoiceRepository
         return result;
     }
 
-    public async Task<Result<PurchaseInvoiceListDTO>> FilterPurchaseInvoiceListByUserAsyncV1(string userId, string cardStatus, CancellationToken cs)
+    public async Task<Result<PurchaseInvoiceListDTO>> FilterPurchaseInvoiceListByUserAsyncV1(
+        string userId,
+        string cardStatus,
+        CancellationToken cs
+    )
     {
         Result<PurchaseInvoiceListDTO> result;
         try
@@ -76,7 +99,10 @@ public class PurchaseInvoiceRepository : IPurchaseInvoiceRepository
                 goto result;
             }
 
-            bool userExists = await _context.TblUsers.AnyAsync(x => x.UserId == userId && !x.IsDeleted, cancellationToken: cs);
+            bool userExists = await _context.TblUsers.AnyAsync(
+                x => x.UserId == userId && !x.IsDeleted,
+                cancellationToken: cs
+            );
             if (!userExists)
             {
                 result = Result<PurchaseInvoiceListDTO>.NotFound("User not found.");
@@ -84,21 +110,28 @@ public class PurchaseInvoiceRepository : IPurchaseInvoiceRepository
             }
 
             List<PurchaseInvoiceDTO> purchaseInvoiceDTOs = new();
-            var invoiceLstByUser = await _dapperService.QueryAsync<PurchaseInvoiceDataModel>(CommonQuery.Sp_FilterPurchaseInvoiceByUserId, new { UserId = userId }, CommandType.StoredProcedure);
+            var invoiceLstByUser = await _dapperService.QueryAsync<PurchaseInvoiceDataModel>(
+                CommonQuery.Sp_FilterPurchaseInvoiceByUserId,
+                new { UserId = userId },
+                CommandType.StoredProcedure
+            );
             foreach (var invoice in invoiceLstByUser)
             {
-                var parameters = new
-                {
-                    invoice.InvoiceNo,
-                    Status = cardStatus
-                };
-                var invoiceDetailLst = await _dapperService.QueryAsync<PurchaseInvoiceDetailDataModel>(CommonQuery.Sp_GetGiftCardDetailsByInvoiceAndStatus, parameters, CommandType.StoredProcedure);
+                var parameters = new { invoice.InvoiceNo, Status = cardStatus };
+                var invoiceDetailLst =
+                    await _dapperService.QueryAsync<PurchaseInvoiceDetailDataModel>(
+                        CommonQuery.Sp_GetGiftCardDetailsByInvoiceAndStatus,
+                        parameters,
+                        CommandType.StoredProcedure
+                    );
 
-                purchaseInvoiceDTOs.Add(new PurchaseInvoiceDTO()
-                {
-                    PurchaseInvoice = invoice,
-                    PurchaseInvoiceDetails = invoiceDetailLst
-                });
+                purchaseInvoiceDTOs.Add(
+                    new PurchaseInvoiceDTO()
+                    {
+                        PurchaseInvoice = invoice,
+                        PurchaseInvoiceDetails = invoiceDetailLst
+                    }
+                );
             }
 
             var model = new PurchaseInvoiceListDTO(purchaseInvoiceDTOs);
@@ -115,7 +148,10 @@ public class PurchaseInvoiceRepository : IPurchaseInvoiceRepository
         return result;
     }
 
-    public async Task<Result<PurchaseInvoiceDTO>> MakePaymentAsync(PurchaseInvoiceRequestDTO purchaseInvoiceRequest, CancellationToken cs)
+    public async Task<Result<PurchaseInvoiceDTO>> MakePaymentAsync(
+        PurchaseInvoiceRequestDTO purchaseInvoiceRequest,
+        CancellationToken cs
+    )
     {
         Result<PurchaseInvoiceDTO> result;
         var transaction = await _context.Database.BeginTransactionAsync(cs);
@@ -123,8 +159,10 @@ public class PurchaseInvoiceRepository : IPurchaseInvoiceRepository
         {
             #region Check User Valid
 
-            var user = await _context.TblUsers.FirstOrDefaultAsync(x => x.UserId == purchaseInvoiceRequest
-            .UserId && !x.IsDeleted, cancellationToken: cs);
+            var user = await _context.TblUsers.FirstOrDefaultAsync(
+                x => x.UserId == purchaseInvoiceRequest.UserId && !x.IsDeleted,
+                cancellationToken: cs
+            );
 
             if (user is null)
             {
@@ -163,9 +201,10 @@ public class PurchaseInvoiceRepository : IPurchaseInvoiceRepository
             {
                 #region Check Gift Card Valid
 
-                var giftCard = await _context.TblGiftcards
-                    .FirstOrDefaultAsync(x => x.GiftCardId == item.GiftCardId
-                    && !x.IsDeleted, cancellationToken: cs);
+                var giftCard = await _context.TblGiftcards.FirstOrDefaultAsync(
+                    x => x.GiftCardId == item.GiftCardId && !x.IsDeleted,
+                    cancellationToken: cs
+                );
 
                 if (giftCard is null)
                 {
