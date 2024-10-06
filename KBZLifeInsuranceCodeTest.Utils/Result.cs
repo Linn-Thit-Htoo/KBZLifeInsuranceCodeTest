@@ -1,7 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.Utils.Enums;
-using Newtonsoft.Json;
-
-namespace KBZLifeInsuranceCodeTest.Utils
+﻿namespace KBZLifeInsuranceCodeTest.Utils
 {
     public class Result<T>
     {
