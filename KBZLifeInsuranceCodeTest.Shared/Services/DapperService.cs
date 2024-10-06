@@ -1,8 +1,4 @@
-﻿using Dapper;
-using MySql.Data.MySqlClient;
-using System.Data;
-
-namespace KBZLifeInsuranceCodeTest.Shared.Services
+﻿namespace KBZLifeInsuranceCodeTest.Shared.Services
 {
     public class DapperService
     {

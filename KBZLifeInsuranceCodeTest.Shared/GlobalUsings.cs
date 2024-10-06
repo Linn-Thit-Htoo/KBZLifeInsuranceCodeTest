@@ -7,3 +7,6 @@ global using Newtonsoft.Json;
 global using QRCoder;
 global using StackExchange.Redis;
 global using System.Security.Cryptography;
+global using Dapper;
+global using MySql.Data.MySqlClient;
+global using System.Data;
