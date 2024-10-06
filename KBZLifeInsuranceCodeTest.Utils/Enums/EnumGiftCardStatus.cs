@@ -1,8 +1,7 @@
-﻿namespace KBZLifeInsuranceCodeTest.Utils.Enums
+﻿namespace KBZLifeInsuranceCodeTest.Utils.Enums;
+
+public enum EnumGiftCardStatus
 {
-    public enum EnumGiftCardStatus
-    {
-        Used,
-        Unused
-    }
+    Used,
+    Unused
 }
