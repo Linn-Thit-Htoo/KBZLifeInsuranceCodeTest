@@ -1,9 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.Account;
-using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.Login
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.Login
 {
     [Route("api/v1/account")]
     [ApiController]
