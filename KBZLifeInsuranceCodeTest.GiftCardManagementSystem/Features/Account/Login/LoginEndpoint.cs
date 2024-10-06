@@ -12,7 +12,10 @@ public class LoginEndpoint : BaseController
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginRequestDTO loginRequest, CancellationToken cs)
+    public async Task<IActionResult> Login(
+        [FromBody] LoginRequestDTO loginRequest,
+        CancellationToken cs
+    )
     {
         var query = new LoginQuery(loginRequest);
         var result = await _mediator.Send(query, cs);
