@@ -1,14 +1,13 @@
 ﻿using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
 
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.DeactivateGiftCard
-{
-    public class DeactivateGiftCardCommand : IRequest<Result<GiftCardDTO>>
-    {
-        public string GiftCardId { get; set; }
+namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.DeactivateGiftCard;
 
-        public DeactivateGiftCardCommand(string giftCardId)
-        {
-            GiftCardId = giftCardId;
-        }
+public class DeactivateGiftCardCommand : IRequest<Result<GiftCardDTO>>
+{
+    public string GiftCardId { get; set; }
+
+    public DeactivateGiftCardCommand(string giftCardId)
+    {
+        GiftCardId = giftCardId;
     }
 }
