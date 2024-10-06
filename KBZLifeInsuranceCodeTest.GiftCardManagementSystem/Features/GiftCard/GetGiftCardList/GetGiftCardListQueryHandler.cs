@@ -1,10 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DbService.AppDbContextModels;
-using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
-using KBZLifeInsuranceCodeTest.Utils;
-using KBZLifeInsuranceCodeTest.Utils.Resources;
-using MediatR;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.GetGiftCardList
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.GetGiftCardList
 {
     public class GetGiftCardListQueryHandler : IRequestHandler<GetGiftCardListQuery, Result<GiftCardListDTO>>
     {
