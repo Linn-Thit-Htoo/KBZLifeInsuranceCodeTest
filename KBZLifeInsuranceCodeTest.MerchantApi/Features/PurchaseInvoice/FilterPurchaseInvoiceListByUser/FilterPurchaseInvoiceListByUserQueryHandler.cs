@@ -1,10 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
-using KBZLifeInsuranceCodeTest.Shared;
-using KBZLifeInsuranceCodeTest.Utils;
-using KBZLifeInsuranceCodeTest.Utils.Resources;
-using MediatR;
-
-namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.FilterPurchaseInvoiceListByUser
+﻿namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.FilterPurchaseInvoiceListByUser
 {
     public class FilterPurchaseInvoiceListByUserQueryHandler : IRequestHandler<FilterPurchaseInvoiceListByUserQuery, Result<PurchaseInvoiceListDTO>>
     {
