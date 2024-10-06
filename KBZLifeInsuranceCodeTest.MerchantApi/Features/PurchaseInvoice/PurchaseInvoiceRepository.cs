@@ -1,13 +1,5 @@
-﻿using KBZLifeInsuranceCodeTest.DbService.AppDbContextModels;
-using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
-using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoiceDetail;
-using KBZLifeInsuranceCodeTest.Extensions;
-using KBZLifeInsuranceCodeTest.Shared;
-using KBZLifeInsuranceCodeTest.Shared.Services;
-using KBZLifeInsuranceCodeTest.Shared.Services.CacheServices;
-using KBZLifeInsuranceCodeTest.Utils;
+﻿using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoiceDetail;
 using KBZLifeInsuranceCodeTest.Utils.Enums;
-using Microsoft.EntityFrameworkCore;
 using System.Data;
 
 namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice
