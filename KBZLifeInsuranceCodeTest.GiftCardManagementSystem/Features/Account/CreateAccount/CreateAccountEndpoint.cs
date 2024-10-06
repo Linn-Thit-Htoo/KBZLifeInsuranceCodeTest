@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount;
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount;
 
 [Route("api/v1/account")]
 [ApiController]
