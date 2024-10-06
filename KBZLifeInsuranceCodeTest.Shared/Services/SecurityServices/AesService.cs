@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography;
-
-namespace KBZLifeInsuranceCodeTest.Shared.Services.SecurityServices
+﻿namespace KBZLifeInsuranceCodeTest.Shared.Services.SecurityServices
 {
     public class AesService
     {
