@@ -1,9 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
-using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.Purchase
+﻿namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice.Purchase
 {
     [Route("api/v1/purchase")]
     [ApiController]
