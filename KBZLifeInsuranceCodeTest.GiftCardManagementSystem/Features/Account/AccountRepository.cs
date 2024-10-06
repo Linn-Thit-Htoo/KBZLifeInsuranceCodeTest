@@ -1,7 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.PageSetting;
-using KBZLifeInsuranceCodeTest.Extensions;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account;
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account;
 
 public class AccountRepository : IAccountRepository
 {
@@ -14,14 +11,16 @@ public class AccountRepository : IAccountRepository
         _aesService = aesService;
     }
 
-    public async Task<Result<AccountListDTO>> GetAccountListAsync(int pageNo, int pageSize, CancellationToken cs)
+    public async Task<Result<AccountListDTO>> GetAccountListAsync(
+        int pageNo,
+        int pageSize,
+        CancellationToken cs
+    )
     {
         Result<AccountListDTO> result;
         try
         {
-            var query = _context.TblUsers
-                .OrderByDescending(x => x.UserId)
-                .Where(x => !x.IsDeleted);
+            var query = _context.TblUsers.OrderByDescending(x => x.UserId).Where(x => !x.IsDeleted);
 
             var lst = await query.Paginate(pageNo, pageSize).ToListAsync(cancellationToken: cs);
             var totalCount = await query.CountAsync(cancellationToken: cs);
@@ -33,10 +32,7 @@ public class AccountRepository : IAccountRepository
             }
 
             var pageSetting = new PageSettingDTO(pageNo, pageSize, pageCount, totalCount);
-            var model = new AccountListDTO(
-                lst.Select(x => x.ToDto()).ToList(),
-                pageSetting
-                );
+            var model = new AccountListDTO(lst.Select(x => x.ToDto()).ToList(), pageSetting);
 
             result = Result<AccountListDTO>.Success(model);
         }
@@ -49,12 +45,18 @@ public class AccountRepository : IAccountRepository
         return result;
     }
 
-    public async Task<Result<AccountDTO>> CreateAccountAsync(AccountRequestDTO accountRequest, CancellationToken cs)
+    public async Task<Result<AccountDTO>> CreateAccountAsync(
+        AccountRequestDTO accountRequest,
+        CancellationToken cs
+    )
     {
         Result<AccountDTO> result;
         try
         {
-            bool phoneNoDuplicate = await _context.TblUsers.AnyAsync(x => x.PhoneNumber == accountRequest.PhoneNumber && !x.IsDeleted, cancellationToken: cs);
+            bool phoneNoDuplicate = await _context.TblUsers.AnyAsync(
+                x => x.PhoneNumber == accountRequest.PhoneNumber && !x.IsDeleted,
+                cancellationToken: cs
+            );
             if (phoneNoDuplicate)
             {
                 result = Result<AccountDTO>.Duplicate("Phone Number already exists.");
@@ -75,13 +77,18 @@ public class AccountRepository : IAccountRepository
         return result;
     }
 
-    public async Task<Result<JwtResponseModel>> LoginAsync(LoginRequestDTO loginRequest, CancellationToken cs)
+    public async Task<Result<JwtResponseModel>> LoginAsync(
+        LoginRequestDTO loginRequest,
+        CancellationToken cs
+    )
     {
         Result<JwtResponseModel> result;
         try
         {
-            var user = await _context.TblUsers.FirstOrDefaultAsync(x => x.PhoneNumber == loginRequest.PhoneNumber
-            && !x.IsDeleted, cancellationToken: cs);
+            var user = await _context.TblUsers.FirstOrDefaultAsync(
+                x => x.PhoneNumber == loginRequest.PhoneNumber && !x.IsDeleted,
+                cancellationToken: cs
+            );
 
             if (user is null)
             {
@@ -112,6 +119,10 @@ public class AccountRepository : IAccountRepository
 
     private JwtResponseModel GetJwtResponseModel(TblUser tblUser)
     {
-        return new JwtResponseModel(_aesService.Encrypt(tblUser.UserId), _aesService.Encrypt(tblUser.UserName), _aesService.Encrypt(tblUser.UserRole));
+        return new JwtResponseModel(
+            _aesService.Encrypt(tblUser.UserId),
+            _aesService.Encrypt(tblUser.UserName),
+            _aesService.Encrypt(tblUser.UserRole)
+        );
     }
 }
