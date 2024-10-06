@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount;
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount;
 
 public class CreateAccountValidator : AbstractValidator<AccountRequestDTO>
 {

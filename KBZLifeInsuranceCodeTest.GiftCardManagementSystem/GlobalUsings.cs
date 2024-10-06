@@ -21,3 +21,4 @@ global using Microsoft.EntityFrameworkCore;
 global using Microsoft.IdentityModel.Tokens;
 global using KBZLifeInsuranceCodeTest.Utils.Enums;
 global using Microsoft.AspNetCore.Mvc;
+global using FluentValidation;
