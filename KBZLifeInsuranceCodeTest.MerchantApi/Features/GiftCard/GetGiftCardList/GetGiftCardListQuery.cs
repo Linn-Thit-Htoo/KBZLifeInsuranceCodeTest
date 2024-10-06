@@ -1,8 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
-using KBZLifeInsuranceCodeTest.Utils;
-using MediatR;
-
-namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.GiftCard.GetGiftCardList
+﻿namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.GiftCard.GetGiftCardList
 {
     public class GetGiftCardListQuery : IRequest<Result<GiftCardListDTO>>
     {
