@@ -15,3 +15,5 @@ global using Microsoft.AspNetCore.Mvc;
 global using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
 global using KBZLifeInsuranceCodeTest.Utils;
 global using KBZLifeInsuranceCodeTest.Shared;
+global using KBZLifeInsuranceCodeTest.Utils.Resources;
+
