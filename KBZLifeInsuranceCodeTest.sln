@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Merchant", "Merchant", "{3F5F9A28-BD1F-479C-94A3-6C832478EF3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KBZLifeInsuranceCodeTest.MerchantApi", "KBZLifeInsuranceCodeTest.MerchantApi\KBZLifeInsuranceCodeTest.MerchantApi.csproj", "{B9256881-7063-4E21-8AAC-E630839763BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KBZLifeInsuranceCodeTest.MerchantApi", "KBZLifeInsuranceCodeTest.MerchantApi\KBZLifeInsuranceCodeTest.MerchantApi.csproj", "{B9256881-7063-4E21-8AAC-E630839763BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
