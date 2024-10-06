@@ -12,7 +12,10 @@ public class PurchaseEndpoint : BaseController
     }
 
     [HttpPost]
-    public async Task<IActionResult> MakePayment([FromForm] PurchaseInvoiceRequestDTO purchaseInvoiceRequest, CancellationToken cs)
+    public async Task<IActionResult> MakePayment(
+        [FromForm] PurchaseInvoiceRequestDTO purchaseInvoiceRequest,
+        CancellationToken cs
+    )
     {
         var command = new PurchaseCommand(purchaseInvoiceRequest);
         var result = await _mediator.Send(command, cs);
