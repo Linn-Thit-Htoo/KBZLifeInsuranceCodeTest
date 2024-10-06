@@ -1,6 +1,7 @@
 ﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.GetGiftCardByCode;
 
-public class GetGiftCardByCodeQueryHandler : IRequestHandler<GetGiftCardByCodeQuery, Result<GiftCardDTO>>
+public class GetGiftCardByCodeQueryHandler
+    : IRequestHandler<GetGiftCardByCodeQuery, Result<GiftCardDTO>>
 {
     private readonly IGiftCardRepository _giftCardRepository;
 
@@ -9,7 +10,10 @@ public class GetGiftCardByCodeQueryHandler : IRequestHandler<GetGiftCardByCodeQu
         _giftCardRepository = giftCardRepository;
     }
 
-    public async Task<Result<GiftCardDTO>> Handle(GetGiftCardByCodeQuery request, CancellationToken cancellationToken)
+    public async Task<Result<GiftCardDTO>> Handle(
+        GetGiftCardByCodeQuery request,
+        CancellationToken cancellationToken
+    )
     {
         Result<GiftCardDTO> result;
         try
@@ -20,7 +24,10 @@ public class GetGiftCardByCodeQueryHandler : IRequestHandler<GetGiftCardByCodeQu
                 goto result;
             }
 
-            result = await _giftCardRepository.GetGiftCardByCodeAsync(request.GiftCardCode, cancellationToken);
+            result = await _giftCardRepository.GetGiftCardByCodeAsync(
+                request.GiftCardCode,
+                cancellationToken
+            );
         }
         catch (Exception ex)
         {
