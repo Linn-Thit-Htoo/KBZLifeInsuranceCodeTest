@@ -1,8 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.Account;
-using KBZLifeInsuranceCodeTest.Shared.Services.SecurityServices;
-using KBZLifeInsuranceCodeTest.Utils;
-using KBZLifeInsuranceCodeTest.Utils.Enums;
-using MediatR;
+﻿using KBZLifeInsuranceCodeTest.Utils.Enums;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount
 {
