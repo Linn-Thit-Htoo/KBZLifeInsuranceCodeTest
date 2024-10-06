@@ -1,8 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
-using KBZLifeInsuranceCodeTest.Shared;
-using KBZLifeInsuranceCodeTest.Utils;
-using KBZLifeInsuranceCodeTest.Utils.Resources;
-using MediatR;
+﻿using KBZLifeInsuranceCodeTest.Utils.Resources;
 
 namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.GiftCard.GetGiftCardById
 {
