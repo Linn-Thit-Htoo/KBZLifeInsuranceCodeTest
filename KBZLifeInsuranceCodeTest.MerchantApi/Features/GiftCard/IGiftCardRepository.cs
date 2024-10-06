@@ -1,7 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
-using KBZLifeInsuranceCodeTest.Utils;
-
-namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.GiftCard
+﻿namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.GiftCard
 {
     public interface IGiftCardRepository
     {
