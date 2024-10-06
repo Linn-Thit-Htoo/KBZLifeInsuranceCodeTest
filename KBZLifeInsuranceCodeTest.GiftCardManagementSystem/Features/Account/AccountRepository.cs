@@ -1,12 +1,5 @@
-﻿using KBZLifeInsuranceCodeTest.DbService.AppDbContextModels;
-using KBZLifeInsuranceCodeTest.DTOs.Features.Account;
-using KBZLifeInsuranceCodeTest.DTOs.Features.PageSetting;
+﻿using KBZLifeInsuranceCodeTest.DTOs.Features.PageSetting;
 using KBZLifeInsuranceCodeTest.Extensions;
-using KBZLifeInsuranceCodeTest.Shared;
-using KBZLifeInsuranceCodeTest.Shared.Services.AuthServices;
-using KBZLifeInsuranceCodeTest.Shared.Services.SecurityServices;
-using KBZLifeInsuranceCodeTest.Utils;
-using Microsoft.EntityFrameworkCore;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account
 {
