@@ -24,3 +24,4 @@ global using FluentValidation;
 global using System.Data;
 global using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoiceDetail;
 global using KBZLifeInsuranceCodeTest.Utils.Enums;
+global using KBZLifeInsuranceCodeTest.MerchantApi.Dependencies;
