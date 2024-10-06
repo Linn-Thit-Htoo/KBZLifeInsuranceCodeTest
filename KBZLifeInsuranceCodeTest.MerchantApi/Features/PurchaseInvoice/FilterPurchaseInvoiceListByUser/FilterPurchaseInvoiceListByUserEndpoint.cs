@@ -12,7 +12,11 @@ public class FilterPurchaseInvoiceListByUserEndpoint : BaseController
     }
 
     [HttpGet]
-    public async Task<IActionResult> FilterPurchaseHistory(string userId, string cardStatus, CancellationToken cs)
+    public async Task<IActionResult> FilterPurchaseHistory(
+        string userId,
+        string cardStatus,
+        CancellationToken cs
+    )
     {
         var query = new FilterPurchaseInvoiceListByUserQuery(userId, cardStatus);
         var result = await _mediator.Send(query, cs);
