@@ -8,7 +8,9 @@ public class RedisService
     public RedisService(IConfiguration configuration)
     {
         _configuration = configuration;
-        _redisExpirationLimit = Convert.ToInt32(_configuration.GetSection("RedisCacheExpirationLimit").Value!);
+        _redisExpirationLimit = Convert.ToInt32(
+            _configuration.GetSection("RedisCacheExpirationLimit").Value!
+        );
     }
 
     public async Task SetAsync(string key, object value)
@@ -19,7 +21,11 @@ public class RedisService
             var redisConnection = await ConnectionMultiplexer.ConnectAsync(configuration);
 
             var redisCache = redisConnection.GetDatabase();
-            await redisCache.StringSetAsync(key, value.ToJson(), TimeSpan.FromMinutes(_redisExpirationLimit));
+            await redisCache.StringSetAsync(
+                key,
+                value.ToJson(),
+                TimeSpan.FromMinutes(_redisExpirationLimit)
+            );
         }
         catch (Exception ex)
         {
