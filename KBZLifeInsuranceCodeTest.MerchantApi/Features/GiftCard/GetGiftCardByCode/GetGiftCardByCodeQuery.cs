@@ -1,5 +1,5 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
-using KBZLifeInsuranceCodeTest.Utils;
+﻿global using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
+global using KBZLifeInsuranceCodeTest.Utils;
 
 namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.GiftCard.GetGiftCardByCode;
 
