@@ -1,8 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
-using KBZLifeInsuranceCodeTest.Utils;
-using MediatR;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.MigrateGiftCard
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.MigrateGiftCard
 {
     public class MigrateGiftCardCommandHandler : IRequestHandler<MigrateGiftCardCommand, Result<GiftCardDTO>>
     {
