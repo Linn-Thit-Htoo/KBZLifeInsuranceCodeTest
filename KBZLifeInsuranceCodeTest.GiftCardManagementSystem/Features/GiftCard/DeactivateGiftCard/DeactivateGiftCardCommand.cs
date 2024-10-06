@@ -1,6 +1,4 @@
-﻿global using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
-
-namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.DeactivateGiftCard;
+﻿namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.GiftCard.DeactivateGiftCard;
 
 public class DeactivateGiftCardCommand : IRequest<Result<GiftCardDTO>>
 {

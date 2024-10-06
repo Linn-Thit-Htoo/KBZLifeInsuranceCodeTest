@@ -25,3 +25,4 @@ global using FluentValidation;
 global using KBZLifeInsuranceCodeTest.Utils.Resources;
 global using KBZLifeInsuranceCodeTest.DTOs.Features.PageSetting;
 global using KBZLifeInsuranceCodeTest.Extensions;
+global using KBZLifeInsuranceCodeTest.DTOs.Features.GiftCard;
