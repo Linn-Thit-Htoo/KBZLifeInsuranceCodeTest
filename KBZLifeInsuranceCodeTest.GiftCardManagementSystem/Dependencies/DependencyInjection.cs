@@ -2,9 +2,13 @@
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddDependencyInjection(this IServiceCollection services, WebApplicationBuilder builder)
+    public static IServiceCollection AddDependencyInjection(
+        this IServiceCollection services,
+        WebApplicationBuilder builder
+    )
     {
-        return services.AddDbContextService(builder)
+        return services
+            .AddDbContextService(builder)
             .AddValidatorServices()
             .AddMediatRService()
             .AddAuthenticationService(builder)
@@ -12,26 +16,36 @@ public static class DependencyInjection
             .AddCustomServices();
     }
 
-    private static IServiceCollection AddDbContextService(this IServiceCollection services, WebApplicationBuilder builder)
+    private static IServiceCollection AddDbContextService(
+        this IServiceCollection services,
+        WebApplicationBuilder builder
+    )
     {
-        builder.Services.AddDbContext<AppDbContext>(opt =>
-        {
-            opt.UseMySQL(builder.Configuration.GetConnectionString("DbConnection")!);
-            opt.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-        }, ServiceLifetime.Transient, ServiceLifetime.Transient);
+        builder.Services.AddDbContext<AppDbContext>(
+            opt =>
+            {
+                opt.UseMySQL(builder.Configuration.GetConnectionString("DbConnection")!);
+                opt.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            },
+            ServiceLifetime.Transient,
+            ServiceLifetime.Transient
+        );
 
         return services;
     }
 
     private static IServiceCollection AddRepositoryServices(this IServiceCollection services)
     {
-        return services.AddScoped<IAccountRepository, AccountRepository>()
+        return services
+            .AddScoped<IAccountRepository, AccountRepository>()
             .AddScoped<IGiftCardRepository, GiftCardRepository>();
     }
 
     private static IServiceCollection AddValidatorServices(this IServiceCollection services)
     {
-        return services.AddScoped<CreateAccountValidator>().AddScoped<LoginValidator>()
+        return services
+            .AddScoped<CreateAccountValidator>()
+            .AddScoped<LoginValidator>()
             .AddScoped<UpdateGiftCardValidator>();
     }
 
@@ -43,9 +57,9 @@ public static class DependencyInjection
     }
 
     private static IServiceCollection AddAuthenticationService(
-this IServiceCollection services,
-WebApplicationBuilder builder
-)
+        this IServiceCollection services,
+        WebApplicationBuilder builder
+    )
     {
         builder
             .Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -71,8 +85,12 @@ WebApplicationBuilder builder
 
     private static IServiceCollection AddCustomServices(this IServiceCollection services)
     {
-        return services.AddScoped<AesService>().AddScoped<JwtService>()
-            .AddScoped<QRService>().AddTransient<TokenValidationService>().AddScoped<DapperService>()
+        return services
+            .AddScoped<AesService>()
+            .AddScoped<JwtService>()
+            .AddScoped<QRService>()
+            .AddTransient<TokenValidationService>()
+            .AddScoped<DapperService>()
             .AddScoped<RedisService>();
     }
 
