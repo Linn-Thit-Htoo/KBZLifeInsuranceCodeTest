@@ -9,12 +9,18 @@ public class GiftCardRepository : IGiftCardRepository
         _context = context;
     }
 
-    public async Task<Result<GiftCardListDTO>> GetGiftCardListAsync(int pageNo, int pageSize, CancellationToken cs)
+    public async Task<Result<GiftCardListDTO>> GetGiftCardListAsync(
+        int pageNo,
+        int pageSize,
+        CancellationToken cs
+    )
     {
         Result<GiftCardListDTO> result;
         try
         {
-            var query = _context.TblGiftcards.OrderByDescending(x => x.GiftCardId).Where(x => !x.IsDeleted);
+            var query = _context
+                .TblGiftcards.OrderByDescending(x => x.GiftCardId)
+                .Where(x => !x.IsDeleted);
 
             var lst = await query.Paginate(pageNo, pageSize).ToListAsync(cancellationToken: cs);
             var totalCount = await query.CountAsync(cancellationToken: cs);
@@ -43,7 +49,10 @@ public class GiftCardRepository : IGiftCardRepository
         Result<GiftCardDTO> result;
         try
         {
-            var item = await _context.TblGiftcards.FirstOrDefaultAsync(x => x.GiftCardId == id && !x.IsDeleted, cancellationToken: cs);
+            var item = await _context.TblGiftcards.FirstOrDefaultAsync(
+                x => x.GiftCardId == id && !x.IsDeleted,
+                cancellationToken: cs
+            );
             if (item is null)
             {
                 result = Result<GiftCardDTO>.NotFound();
@@ -61,12 +70,18 @@ public class GiftCardRepository : IGiftCardRepository
         return result;
     }
 
-    public async Task<Result<GiftCardDTO>> GetGiftCardByCodeAsync(string giftCartNo, CancellationToken cs)
+    public async Task<Result<GiftCardDTO>> GetGiftCardByCodeAsync(
+        string giftCartNo,
+        CancellationToken cs
+    )
     {
         Result<GiftCardDTO> result;
         try
         {
-            var item = await _context.TblGiftcards.FirstOrDefaultAsync(x => x.GiftCardNo == giftCartNo && !x.IsDeleted, cancellationToken: cs);
+            var item = await _context.TblGiftcards.FirstOrDefaultAsync(
+                x => x.GiftCardNo == giftCartNo && !x.IsDeleted,
+                cancellationToken: cs
+            );
             if (item is null)
             {
                 result = Result<GiftCardDTO>.NotFound();
