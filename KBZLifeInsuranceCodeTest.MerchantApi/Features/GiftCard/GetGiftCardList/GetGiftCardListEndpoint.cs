@@ -12,7 +12,11 @@ public class GetGiftCardListEndpoint : BaseController
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetGiftCardListAsync(int pageNo, int pageSize, CancellationToken cs)
+    public async Task<IActionResult> GetGiftCardListAsync(
+        int pageNo,
+        int pageSize,
+        CancellationToken cs
+    )
     {
         var query = new GetGiftCardListQuery(pageNo, pageSize);
         var result = await _mediator.Send(query, cs);
