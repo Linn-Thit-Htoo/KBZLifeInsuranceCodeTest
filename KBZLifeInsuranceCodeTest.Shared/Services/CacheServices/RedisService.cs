@@ -1,6 +1,4 @@
-﻿using StackExchange.Redis;
-
-namespace KBZLifeInsuranceCodeTest.Shared.Services.CacheServices;
+﻿namespace KBZLifeInsuranceCodeTest.Shared.Services.CacheServices;
 
 public class RedisService
 {
