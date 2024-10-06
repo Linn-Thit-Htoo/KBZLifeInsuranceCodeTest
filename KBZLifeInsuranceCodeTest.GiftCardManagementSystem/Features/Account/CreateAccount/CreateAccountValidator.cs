@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using KBZLifeInsuranceCodeTest.DTOs.Features.Account;
 
 namespace KBZLifeInsuranceCodeTest.GiftCardManagementSystem.Features.Account.CreateAccount
 {
