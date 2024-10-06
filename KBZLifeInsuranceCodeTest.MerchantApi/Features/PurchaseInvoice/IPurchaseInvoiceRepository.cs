@@ -1,7 +1,4 @@
-﻿using KBZLifeInsuranceCodeTest.DTOs.Features.PurchaseInvoice;
-using KBZLifeInsuranceCodeTest.Utils;
-
-namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice
+﻿namespace KBZLifeInsuranceCodeTest.MerchantApi.Features.PurchaseInvoice
 {
     public interface IPurchaseInvoiceRepository
     {
